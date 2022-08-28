@@ -1,6 +1,16 @@
 import java.util.Scanner;
 
 public class Project1 {
+
+    static String name = "Collin Linden Drake";
+
+    static int birthdate = 2006;
+
+    static String address = "2890 Twin Lakes Cir, Lafayette, CO";
+
+    static String social_security = "😑";
+
+    static int attempts = 3;
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
@@ -10,27 +20,27 @@ public class Project1 {
 
             System.out.println("To access client information please provide the client's passcode: ");
 
-            while (MyInfo.attempts != 0) {
+            while (Project1.attempts != 0) {
 
                 if (reader.nextInt() == passcode) {
 
                     System.out.println("What would you like to access?:  -Name-  -Birthdate-  -Address-  -Social Security-");
 
                     switch (reader.next().toLowerCase()) {
-                        case "name" -> System.out.println(MyInfo.name);
-                        case "birthdate" -> System.out.println(MyInfo.birthdate);
-                        case "address" -> System.out.println(MyInfo.address);
-                        case "ss" -> System.out.println(MyInfo.social_security);
+                        case "name" -> System.out.println(Project1.name);
+                        case "birthdate" -> System.out.println(Project1.birthdate);
+                        case "address" -> System.out.println(Project1.address);
+                        case "ss" -> System.out.println(Project1.social_security);
                         default -> System.out.println("That information is nonexistent.");
                     }
                 } else {
 
-                    MyInfo.attempts--;
+                    Project1.attempts--;
 
-                    System.out.println("That is incorrect, remaining attempts: " + MyInfo.attempts);
+                    System.out.println("That is incorrect, remaining attempts: " + Project1.attempts);
 
-                    if (MyInfo.attempts == 0) {
-                        System.exit(MyInfo.attempts);
+                    if (Project1.attempts == 0) {
+                        System.exit(Project1.attempts);
                     }
                 }
             }
