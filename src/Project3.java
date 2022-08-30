@@ -10,6 +10,7 @@ public class Project3 {
         }
         catch(Exception e) {
             System.out.println("That's an unsupported input type.");
+            main(null);
         }
     }
 }
