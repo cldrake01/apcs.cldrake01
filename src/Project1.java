@@ -2,22 +2,22 @@ import java.util.Scanner;
 
 public class Project1 {
 
-    static String name = "Collin Linden Drake";
+    protected static String name = "Collin Linden Drake";
 
-    static int birthdate = 2006;
+    protected static int birthdate = 2006;
 
-    static String address = "2890 Twin Lakes Cir, Lafayette, CO";
+    protected static String address = "2890 Twin Lakes Cir, Lafayette, CO";
 
-    static String social_security = "😑";
+    protected static String social_security = "😑";
 
     static int attempts = 3;
+
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
         int passcode = 123;
 
         try {
-
             System.out.println("To access client information please provide the client's passcode: ");
 
             while (Project1.attempts != 0) {
