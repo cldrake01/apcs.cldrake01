@@ -8,23 +8,26 @@ class Project3 {
 
             double km = reader.nextDouble();
             double nm = km * 1.852;
-            int inm = (int) nm;
+            int intKm = (int) km;
+            int intNm = (int) nm;
 
             System.out.print("That's ");
             System.out.print(nm);
             System.out.print(" in nautical miles, ");
-            System.out.print(km);
+            System.out.print(intKm);
             System.out.print("/10,000 of the distance between the poles, ");
             System.out.print(nm / 90.0);
             System.out.print(" degrees of an arc, and ");
             if (nm > 1) {
-                System.out.print(inm);
+                System.out.print(intNm);
                 System.out.print(" minutes of an arc.");
             } else if (nm < 0) {
                 System.out.print("I'm afraid time travel isn't quite possible yet.");
-            } else {
-                System.out.print(inm);
+            } else if (nm == 1) {
+                System.out.print(intNm);
                 System.out.print(" minute of an arc.");
+            } else {
+                System.out.println("I haven't a clue how you were able to receive this error message.");
             }
         }
         catch(Exception e) {
