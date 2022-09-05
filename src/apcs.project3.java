@@ -7,7 +7,7 @@ class Project3 {
         try {
 
             double km = reader.nextDouble();
-            double nm = km / 1.852;
+            double nm = km * 1.852;
             int inm = (int) nm;
 
             System.out.print("That's ");
