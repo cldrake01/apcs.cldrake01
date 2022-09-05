@@ -12,9 +12,11 @@ class Project3 {
 
             System.out.print("That's ");
             System.out.print(nm);
-            System.out.print(" in nautical miles, it's also ");
+            System.out.print(" in nautical miles, ");
             System.out.print(km);
-            System.out.print("/10,000 the distance between the poles, and ");
+            System.out.print("/10,000 of the distance between the poles, ");
+            System.out.print(nm / 90.0);
+            System.out.print(" degrees of an arc, and ");
             if (nm > 1) {
                 System.out.print(inm);
                 System.out.print(" minutes of an arc.");
