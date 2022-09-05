@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Project1 {
+class Project1 {
 
     protected static String name = "Collin Linden Drake";
 
