@@ -1,8 +1,11 @@
 package lucky7;
 import java.util.Scanner;
 public class Lucky7 {
+
     static int balance = 0;
+
     static int[] max = {0, 0};
+
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
