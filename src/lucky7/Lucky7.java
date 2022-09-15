@@ -9,7 +9,7 @@ public class Lucky7 {
         balance = reader.nextInt();
         System.out.println("Choose your lucky number: ");
         int luckyNumber = reader.nextInt();
-        while (luckyNumber > 12) {
+        while (luckyNumber > 12 || luckyNumber < 2) {
             System.out.println("Choose a number less than twelve, but greater than two: ");
             luckyNumber = reader.nextInt();
         }
