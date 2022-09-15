@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class Project3 {
     public static void main(String[] args) {
-        Scanner reader = new Scanner (System.in);
+        Scanner reader = new Scanner(System.in);
         System.out.print("What distance would you like to convert to nautical miles?: ");
         try {
 
@@ -29,8 +29,7 @@ class Project3 {
             } else {
                 System.out.println("I haven't a clue how you were able to receive this error message.");
             }
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("That's an unsupported input type, try a number instead.");
             main(null);
         }

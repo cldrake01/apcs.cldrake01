@@ -18,6 +18,7 @@ class Project1 {
         int passcode = 123;
 
         try {
+
             System.out.println("To access client information please provide the client's passcode: ");
 
             while (Project1.attempts != 0) {
