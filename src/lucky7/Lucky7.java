@@ -67,7 +67,7 @@ public class Lucky7 {
 
             if (balance > 0) {
 
-                System.out.println("So far you've rolled " + roll + " times, and your balance is $" + balance + ". ");
+                System.out.println("So far you've rolled " + roll + " times, and your balance is " + balance + " dollars. ");
 
             } else {
 
