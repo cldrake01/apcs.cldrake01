@@ -1,5 +1,6 @@
 package lucky7;
 import java.util.Scanner;
+
 public class Lucky7 {
 
     static int balance = 0;
