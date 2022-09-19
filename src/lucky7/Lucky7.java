@@ -2,49 +2,45 @@ package lucky7;
 import java.util.Scanner;
 
 public class Lucky7 {
+
     static int balance = 0;
+
+    static int[] max = {0, 0};
+
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
-        int[] max = {0, 0};
-
-        System.out.println("Good evening! How much will you be betting with us tonight?: ");
+        System.out.println("How much will you be betting with us tonight?: ");
         balance = reader.nextInt();
 
-        System.out.println("Excellent, now please choose a lucky number: ");
+        System.out.println("Choose your lucky number: ");
         int luckyNumber = reader.nextInt();
 
-        while (luckyNumber > 12) {
+        while (luckyNumber > 12 || luckyNumber < 2) {
 
-            System.out.println("Might I suggest choosing a number twelve and two: ");
+            System.out.println("Choose a number less than twelve, but greater than two: ");
             luckyNumber = reader.nextInt();
 
         }
 
-        for (int roll = 0; balance > 0; roll++) {
+        for (int roll = 1; balance > 0; roll++) {
 
-            double dieOne = Math.random() * (luckyNumber);
-            double dieTwo = Math.random() * (luckyNumber);
+            double dieOne = Math.random() * luckyNumber;
+            double dieTwo = Math.random() * luckyNumber;
 
             if (Math.round(dieOne) + Math.round(dieTwo) == luckyNumber) {
 
                 balance += 4;
+                System.out.println("You're taking home a glorious sum of " + balance + " dollars, would you like to continue playing?: (Y/n) ");
+                String con = reader.next().toLowerCase();
 
-                System.out.println("You won and your balance is now $" + balance + ", would you like to continue playing?: (Y/n) ");
-                String con = reader.next();
-
-                if  (max[0] < balance) {
-                    max[0] = balance;
-                    max[1] = roll;
-                }
-
-                if (con.equals("Y")) {
+                if (con.equals("y")) {
 
                     continue;
 
                 } else if (con.equals("n")) {
 
-                    System.out.println("You're taking home a glorious sum of " + balance + " dollars, but you should've thrown in the towel on roll " + max[1] + " when your balance was $" + max[0] + ". Thank you playing with us.");
+                    System.out.println("The opportune moment to bow out would've been on game " + max[1] + " when you'd amassed a total of " + max[0] + " dollars, but thank you for playing with us regardless.");
                     break;
 
                 } else {
@@ -54,20 +50,28 @@ public class Lucky7 {
                     continue;
 
                 }
+
             } else {
 
                 balance--;
-                System.out.println(Math.round(dieOne)+ " + " + Math.round(dieTwo) + " is unfortunately not equal to " + luckyNumber + ".");
+                System.out.println(Math.round(dieOne)+ " + " + Math.round(dieTwo) + " is not equal to " + luckyNumber + ".");
+
+            }
+
+            if (max[0] < balance) {
+
+                max[0] = balance;
+                max[1] = roll;
 
             }
 
             if (balance > 0) {
 
-                System.out.println("So far you've rolled " + roll + " times, and your balance is $" + balance + ". ");
+                System.out.println("So far you've rolled " + roll + " times, and your balance is " + balance + " dollars. ");
 
             } else {
 
-                System.out.println("Thank you for playing with us.");
+                System.out.println("The opportune moment to bow out would've been on game " + max[1] + " when you'd amassed a total of " + max[0] + " dollars, but thank you for playing with us regardless.");
 
             }
         }
