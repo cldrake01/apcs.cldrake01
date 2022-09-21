@@ -7,7 +7,7 @@ public class Pi {
 
     static double iteration = 2.0;
     static double sum;
-    static double totalCoordinatePairsPassed = 0;
+    static double totalCoordinatePairsPassed;
 
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
