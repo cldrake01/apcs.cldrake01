@@ -49,7 +49,7 @@ public class Pi {
 
             }
 
-            System.out.println("So far " + ((int) totalCoordinatePairsPassed) + "/" + desiredNumberOfCoordinatePairs+ " of your points were in the circle, which translates to " + (totalCoordinatePairsPassed / desiredNumberOfCoordinatePairs) * 4.0 + " in terms of Pi.");
+            System.out.println("So far " + ((int) totalCoordinatePairsPassed) + "/" + desiredNumberOfCoordinatePairs + " of your points were in the circle, which translates to " + (totalCoordinatePairsPassed / desiredNumberOfCoordinatePairs) * 4.0 + " in terms of Pi.");
 
         }
     }
