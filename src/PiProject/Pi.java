@@ -33,9 +33,9 @@ public class Pi {
         }
 
         System.out.println("How many coordinate pairs would you like to use for his approximation?: ");
-        int totalCoordinatePairs = reader.nextInt();
+        int desiredNumberOfCoordinatePairs = reader.nextInt();
 
-        for (int i = 0; i <= totalCoordinatePairs; i++) {
+        for (int i = 0; i <= desiredNumberOfCoordinatePairs; i++) {
 
             double[] coordinate = {Math.random() * 2 - 1, Math.random() * 2 - 1};
 
@@ -49,7 +49,7 @@ public class Pi {
 
             }
 
-            System.out.println("So far " + ((int) totalCoordinatePairsPassed) + "/" + totalCoordinatePairs + " of your points were in the circle, which translates to " + (totalCoordinatePairsPassed / totalCoordinatePairs) * 4.0 + " in terms of Pi.");
+            System.out.println("So far " + ((int) totalCoordinatePairsPassed) + "/" + desiredNumberOfCoordinatePairs+ " of your points were in the circle, which translates to " + (totalCoordinatePairsPassed / desiredNumberOfCoordinatePairs) * 4.0 + " in terms of Pi.");
 
         }
     }
