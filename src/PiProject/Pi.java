@@ -79,7 +79,6 @@ public class Pi {
                 System.out.println();
                 System.out.println("If we use your second approximation to calculate the volume of earth it would be " + (4.0 / 3.0) * ((totalCoordinatePairsPassed / desiredNumberOfCoordinatePairs) * 4.0) * (3958.8 * 3958.8 * 3958.8) + " miles cubed in scientific notation! As opposed to the actual volume of earth, which is " + (4.0 / 3.0) * Math.PI * (3958.8 * 3958.8 * 3958.8) + " miles cubed in scientific notation.");
 
-
             }
         } else {
 
