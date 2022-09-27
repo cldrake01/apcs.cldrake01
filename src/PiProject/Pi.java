@@ -63,30 +63,28 @@ public class Pi {
             double firstApproxGlobeVolume = (4.0 / 3.0) * sum * (3958.8 * 3958.8 * 3958.8);
             double secondApproxGlobeVolume = (4.0 / 3.0) * ((totalCoordinatePairsPassed / desiredNumberOfCoordinatePairs) * 4.0) * (3958.8 * 3958.8 * 3958.8);
 
-            System.out.println("Would you prefer to use your first, or your second approximation?: [First/Second/Both] ");
+            System.out.println("Would you prefer to use your first, or your second approximation?: [First/Second/Both]");
             String firstOrSecond = reader.next();
 
             if (firstOrSecond.equalsIgnoreCase("first")) {
 
-                System.out.println("If we substitute pi for your first approximation of pi in order to calculate the volume of the earth in miles cubed, we'd receive " + (4.0 / 3.0) * sum * (3958.8 * 3958.8 * 3958.8) + " in scientific notation. The actual volume of earth in miles cubed however is " + globeVolume + " in scientific notation.");
+                System.out.println("\nIf we substitute pi for your first approximation of pi in order to calculate the volume of the earth in miles cubed, we'd receive " + (4.0 / 3.0) * sum * (3958.8 * 3958.8 * 3958.8) + " in scientific notation. The actual volume of earth in miles cubed however is " + globeVolume + " in scientific notation.");
                 System.out.println("Meaning that the two had a difference of " + Math.abs(firstApproxGlobeVolume - globeVolume) + " units.");
 
             } else if (firstOrSecond.equalsIgnoreCase("second")) {
 
-                System.out.println("If we use your second approximation to calculate the volume of earth it would be " + secondApproxGlobeVolume + " miles cubed in scientific notation! As opposed to the actual volume of earth, which is " + globeVolume + " miles cubed in scientific notation.");
-                System.out.println("Meaning that the two had a difference of " + Math.abs(secondApproxGlobeVolume - globeVolume) + " units.");
+                System.out.println("\nIf we use your second approximation to calculate the volume of earth it would be " + secondApproxGlobeVolume + " miles cubed in scientific notation! As opposed to the actual volume of earth, which is " + globeVolume + " miles cubed in scientific notation.");
+                System.out.println("Meaning that the two had a difference of " + Math.abs(secondApproxGlobeVolume - globeVolume) + " units.\n");
 
             } else {
 
-                System.out.println("Both it is then!");
-                System.out.println();
+                System.out.println("Both it is then!\n");
 
                 System.out.println("If we substitute pi for your first approximation of pi in order to calculate the volume of the earth in miles cubed, we'd receive " + (4.0 / 3.0) * sum * (3958.8 * 3958.8 * 3958.8) + " in scientific notation. The actual volume of earth in miles cubed however is " + globeVolume + " in scientific notation.");
                 System.out.println("Meaning that the two had a difference of " + Math.abs(firstApproxGlobeVolume - globeVolume) + " units.");
-                System.out.println();
 
                 System.out.println("If we use your second approximation to calculate the volume of earth it would be " + secondApproxGlobeVolume + " miles cubed in scientific notation! As opposed to the actual volume of earth, which is " + globeVolume + " miles cubed in scientific notation.");
-                System.out.print("Meaning that the two had a difference of " + Math.abs(secondApproxGlobeVolume - globeVolume) + " units.");
+                System.out.print("Meaning that the two had a difference of " + Math.abs(secondApproxGlobeVolume - globeVolume) + " units.\n");
             }
         } else {
             // The message bellow is printed if the user responds 'n'.
