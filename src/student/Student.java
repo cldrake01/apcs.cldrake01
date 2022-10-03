@@ -1,5 +1,7 @@
 package student;
 
+import java.util.Arrays;
+
 public class Student {
 
     double id = Math.random() * 1_000_000;
@@ -14,7 +16,7 @@ public class Student {
 
         System.out.println("ID: " + someone.getId());
         System.out.println("Name: "  + someone.getName());
-        System.out.println(someone.getTests());
+        System.out.println(Arrays.toString(someone.getTests()));
         //System.out.println(someone.getAverage());
     }
 // Setters
