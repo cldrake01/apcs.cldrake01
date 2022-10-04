@@ -20,8 +20,7 @@ public class Student {
         System.out.println("Test Scores: " + Arrays.toString(someone.getTests()));
         System.out.println("Average Test Score: " + someone.getAverage().toString().substring(15, 20));
     }
-// Setters
-
+    // Setters
     public void setName(String name) {
         this.name = name;
     }
@@ -31,7 +30,6 @@ public class Student {
         this.tests[1] = test2;
         this.tests[2] = test3;
     }
-
     // Getters
     public int getId() {
         return (int) this.id;
@@ -42,7 +40,7 @@ public class Student {
     }
 
     public double[] getTests() {
-        return tests;
+        return this.tests;
     }
 
     public OptionalDouble getAverage() {
