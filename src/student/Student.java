@@ -18,6 +18,7 @@ public class Student {
         System.out.println("ID: " + someone.getId());
         System.out.println("Name: "  + someone.getName());
         System.out.println("Test Scores: " + Arrays.toString(someone.getTests()));
+        System.out.println("Highest Score: " + someone.getHighestScore().toString().substring(15, 19));
         System.out.println("Average Test Score: " + someone.getAverage().toString().substring(15, 20));
     }
     // Setters
@@ -45,5 +46,9 @@ public class Student {
 
     public OptionalDouble getAverage() {
         return Arrays.stream(this.tests).average();
+    }
+
+    public OptionalDouble getHighestScore() {
+        return Arrays.stream(this.tests).max();
     }
 }
