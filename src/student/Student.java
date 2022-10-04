@@ -9,18 +9,6 @@ public class Student {
     String name;
 
     double[] tests = {0.0, 0.0, 0.0};
-
-    public static void main(String[] args) {
-        Student someone = new Student();
-        someone.setName("Someone");
-        someone.setTests(92.0, 98.5, 89.0);
-
-        System.out.println("ID: " + someone.getId());
-        System.out.println("Name: "  + someone.getName());
-        System.out.println("Test Scores: " + Arrays.toString(someone.getTests()));
-        System.out.println("Highest Score: " + someone.getHighestScore().toString().substring(15, 19));
-        System.out.println("Average Test Score: " + someone.getAverage().toString().substring(15, 20));
-    }
     // Setters
     public void setName(String name) {
         this.name = name;
