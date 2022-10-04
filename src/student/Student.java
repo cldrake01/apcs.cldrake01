@@ -1,6 +1,7 @@
 package student;
 
 import java.util.Arrays;
+import java.util.OptionalDouble;
 
 public class Student {
 
@@ -16,8 +17,8 @@ public class Student {
 
         System.out.println("ID: " + someone.getId());
         System.out.println("Name: "  + someone.getName());
-        System.out.println(Arrays.toString(someone.getTests()));
-        //System.out.println(someone.getAverage());
+        System.out.println("Test Scores: " + Arrays.toString(someone.getTests()));
+        System.out.println("Average Test Score: " + someone.getAverage().toString().substring(15, 20));
     }
 // Setters
 
@@ -40,11 +41,11 @@ public class Student {
         return this.name;
     }
 
-    public double getAverage() {
-        return (this.tests[1] + this.tests[2] + this.tests[3]) / (tests.length - 1);
-    }
-
     public double[] getTests() {
         return tests;
+    }
+
+    public OptionalDouble getAverage() {
+        return Arrays.stream(this.tests).average();
     }
 }
