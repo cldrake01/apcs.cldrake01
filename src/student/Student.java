@@ -5,6 +5,8 @@ import java.util.OptionalDouble;
 
 public class Student {
 
+    String[] classes = {"Math", "Science", "English", "Civics", "Foreign Language"};
+    String[] electives = {"AP CS", "Data Structures", "AP Art History", "Digital Art", "Study Hall"};
     double id = Math.random() * 1_000_000;
     String name;
 
