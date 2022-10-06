@@ -12,8 +12,8 @@ public class StudentRunner {
         System.out.println("Name: " + someone.getName());
         System.out.println("Test Scores: " + Arrays.toString(someone.getTests()));
         System.out.println("Highest Score: " + someone.getHighestScore().toString().substring(15, 19));
-        System.out.println("Average Test Score: " + someone.getAverage().toString().substring(15, 20) + "\n");
-        System.out.println(someone.name + "'s Schedule: " + someone.getSchedule());
+        System.out.println("Average Test Score: " + someone.getAverage().toString().substring(15, 20));
+        System.out.println(someone.name + "'s Schedule: " + someone.getSchedule() + "\n");
 
         Student JoJo = new Student();
         JoJo.setName("Jotaro Kujo");
@@ -25,7 +25,6 @@ public class StudentRunner {
         System.out.println("Highest Score: " + JoJo.getHighestScore().toString().substring(15, 20));
         System.out.println("Average Test Score: " + JoJo.getAverage().toString().substring(15, 20));
         System.out.println(JoJo.name + "'s Schedule: " + JoJo.getSchedule() + "\n");
-
 
         Student Dio = new Student();
         Dio.setName("Dio Brando");

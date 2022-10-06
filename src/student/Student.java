@@ -5,8 +5,8 @@ import java.util.OptionalDouble;
 
 public class Student {
 
-    String[] classes = {"Math", "English", "Science", "Civics", "Foreign Language", " ", " ", " "};
-    String[][] electives = {{"AP CS", "Data Structures"}, {"Study Hall", "AP Art History"}, {"Weights & Conditioning", "Walking & Life Fitness"}};
+    String[] schedule = {"Math", "English", "Science", "Civics", "Foreign Language", " ", " ", " "};
+    final String[][] electives = {{"AP Computer Science", "Data Structures"}, {"Study Hall", "AP Art History"}, {"Weights & Conditioning", "Walking & Life Fitness"}};
     double id = Math.random() * 1_000_000;
     String name;
 
@@ -43,12 +43,11 @@ public class Student {
     }
 
     public String getSchedule() {
-
         for (int i = 5; i < 8; i++) {
             for (int arrayIncrement = 0; arrayIncrement < i - 4; arrayIncrement++) {
-                this.classes[i] = this.electives[arrayIncrement] [(int) (Math.random() * 2)];
+                this.schedule[i] = this.electives[arrayIncrement] [(int) (Math.random() * 2)];
             }
         }
-        return Arrays.toString(this.classes);
+        return Arrays.toString(this.schedule);
     }
 }
