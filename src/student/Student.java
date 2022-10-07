@@ -1,6 +1,5 @@
 package student;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.OptionalDouble;
 
@@ -46,11 +45,11 @@ public class Student {
 
         int electivesIncrement = 0;
 
-        for (String i: this.schedule) {
+        for (int i = 0; i < this.schedule.length; i++) {
 
-            if (this.schedule[Integer.parseInt(i)].equals(" ")) {
+            if (this.schedule[i].equals(" ")) {
 
-                this.schedule[Integer.parseInt(i)] = this.electives[electivesIncrement] [(int) (Math.random() * 2)];
+                this.schedule[i] = this.electives[electivesIncrement] [(int) (Math.random() * 2)];
                 electivesIncrement++;
 
             }
