@@ -5,10 +5,10 @@ import java.util.OptionalDouble;
 
 public class Student {
 
+    String name;
     String[] schedule = {"Math", "English", "Science", "Civics", "Foreign Language", " ", " ", " "};
     final String[][] electives = {{"AP Computer Science", "Data Structures"}, {"Study Hall", "AP Art History"}, {"Weights & Conditioning", "Walking & Life Fitness"}};
-    double id = Math.random() * 1_000_000;
-    String name;
+    final double id = Math.random() * 1_000_000;
 
     double[] tests = {0.0, 0.0, 0.0};
     // Setters
@@ -43,7 +43,7 @@ public class Student {
     }
 
     public String getSchedule() {
-        for (int i = 5; i < 8; i++) {
+        for (int i = this.schedule.length - 4; i < this.schedule.length - 1; i++) {
             for (int arrayIncrement = 0; arrayIncrement < i - 4; arrayIncrement++) {
                 this.schedule[i] = this.electives[arrayIncrement] [(int) (Math.random() * 2)];
             }
