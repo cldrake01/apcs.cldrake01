@@ -43,7 +43,7 @@ public class Student {
     }
 
     public String getSchedule() {
-        for (int i = this.schedule.length - 4; i < this.schedule.length - 1; i++) {
+        for (int i = this.schedule.length - 4; i < this.schedule.length; i++) {
             for (int arrayIncrement = 0; arrayIncrement < i - 4; arrayIncrement++) {
                 this.schedule[i] = this.electives[arrayIncrement] [(int) (Math.random() * 2)];
             }
