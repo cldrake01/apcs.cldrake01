@@ -6,7 +6,7 @@ import java.util.OptionalDouble;
 public class Student {
     String name;
     String[] schedule = {"Math", "English", "Science", "Civics", "Foreign Language", " ", " ", " "};
-    final String[][] electives = {{"AP Computer Science", "Data Structures"}, {"Study Hall", "AP Art History"}, {"Weights & Conditioning", "Walking & Life Fitness"}};
+    final String[][] electives = {{"AP Computer Science", "Psychology", "Physics"}, {"Study Hall", "AP Art History", "Digital Art & Photography"}, {"Weights & Conditioning", "Walking & Life Fitness", "P.E."}};
     final double id = Math.random() * 1_000_000;
 
     double[] tests = {0.0, 0.0, 0.0};
@@ -49,7 +49,7 @@ public class Student {
 
             if (this.schedule[i].equals(" ")) {
 
-                this.schedule[i] = this.electives[electivesIncrement] [(int) (Math.random() * 2)];
+                this.schedule[i] = this.electives[electivesIncrement] [(int) (Math.random() * this.electives.length)];
                 electivesIncrement++;
 
             }
