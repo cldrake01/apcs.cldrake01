@@ -10,7 +10,10 @@ public class StudentRunner {
 
         System.out.println("ID: " + someone.getId());
         System.out.println("Name: " + someone.getName());
-        System.out.println("Test Scores: " + Arrays.toString(someone.getTests()));
+        System.out.println("Test Scores: " + someone.getTestsAsString());
+        //                                           ^^^^^^^^^^^^^^^
+        //                                           I have a another method called getTests(),
+        //                                           which returns a double[].
         System.out.println("Highest Score: " + someone.getHighestScore());
         System.out.println("Average Test Score: " + someone.getAverage());
         System.out.println(someone.getName() + "'s Schedule: " + someone.getSchedule() + "\n");

@@ -38,6 +38,10 @@ public class Student {
         return this.tests;
     }
 
+    public String getTestsAsString() {
+        return Arrays.toString(this.tests);
+    }
+
     public double getAverage() {
         return Arrays.stream(this.tests).average().getAsDouble();
     }
