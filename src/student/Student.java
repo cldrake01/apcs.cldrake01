@@ -1,7 +1,6 @@
 package student;
 
 import java.util.Arrays;
-import java.util.OptionalDouble;
 
 public class Student {
     String name;
@@ -39,12 +38,12 @@ public class Student {
         return this.tests;
     }
 
-    public OptionalDouble getAverage() {
-        return Arrays.stream(this.tests).average();
+    public double getAverage() {
+        return Arrays.stream(this.tests).average().getAsDouble();
     }
 
-    public OptionalDouble getHighestScore() {
-        return Arrays.stream(this.tests).max();
+    public double getHighestScore() {
+        return Arrays.stream(this.tests).max().getAsDouble();
     }
 
     /*
