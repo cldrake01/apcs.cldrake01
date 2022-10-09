@@ -41,6 +41,10 @@ public class Student {
         return Arrays.stream(this.tests).max();
     }
 
+/*
+ * getSchedule() creates a randomized schedule by iterating through an array containing various electives.
+ */
+
     public String getSchedule() {
 
         int electivesIncrement = 0;
