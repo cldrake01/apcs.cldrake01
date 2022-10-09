@@ -10,16 +10,22 @@ public class Student {
     final double id = Math.random() * 1_000_000;
 
     double[] tests = {0.0, 0.0, 0.0};
+
     // Setters
     public void setName(String name) {
         this.name = name;
     }
 
     public void setTests(double test1, double test2, double test3) {
-        this.tests[0] = test1;
-        this.tests[1] = test2;
-        this.tests[2] = test3;
+        final double[] testsInput = {test1, test2, test3};
+
+        for (double test : this.tests) {
+
+            this.tests[(int) test] = testsInput[(int) test];
+
+        }
     }
+
     // Getters
     public int getId() {
         return (int) this.id;
@@ -41,9 +47,9 @@ public class Student {
         return Arrays.stream(this.tests).max();
     }
 
-/*
- * getSchedule() creates a randomized schedule by iterating through an array containing various electives.
- */
+    /*
+     * getSchedule() creates a randomized schedule by iterating through an array containing various electives.
+     */
 
     public String getSchedule() {
 
@@ -53,7 +59,7 @@ public class Student {
 
             if (this.schedule[i].equals(" ")) {
 
-                this.schedule[i] = this.electives[electivesIncrement] [(int) (Math.random() * this.electives.length)];
+                this.schedule[i] = this.electives[electivesIncrement][(int) (Math.random() * this.electives.length)];
                 electivesIncrement++;
 
             }
