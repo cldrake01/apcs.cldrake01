@@ -1,7 +1,5 @@
 package apcs.fraction;
 
-//import java.util.Scanner;
-
 public class Fraction {
     public int numerator = 1;
     public int denominator = (int) ((Math.random() * 10) * Math.random() + 2);
