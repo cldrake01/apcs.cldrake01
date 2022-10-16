@@ -9,6 +9,7 @@ public class FractionRunner {
         System.out.println("Denominator: " + fractal.getDenominator());
         System.out.println("Fraction: " + fractal.getFractionAsString());
         System.out.println("Mixed Form: " + fractal.mixedFraction);
-
+        fractal.getNumerator();
+        fractal.getDenominator();
     }
 }
