@@ -5,6 +5,7 @@ public class Fraction {
     public double denominator = (Math.random() * 10) * Math.random() + 2;
 
     public String mixedFraction = "";
+
     //Setters
 
     public void setNumerator(int numerator) {
