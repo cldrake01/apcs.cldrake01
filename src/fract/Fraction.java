@@ -17,10 +17,8 @@ public class Fraction {
     }
 
     public void setFraction(String input) {
-
         this.numerator = Integer.parseInt(input.substring(0, input.indexOf("/")));
         this.denominator = Integer.parseInt(input.substring(input.indexOf("/") + 1));
-
     }
 
     public void multiplyByInt (int multiplier) {
