@@ -27,9 +27,14 @@ public class Fraction {
         this.numerator *= multiplier;
     }
 
-    public void multiplyByFraction (int numer, int denom) {
+    public void multiplyByFraction (double numer, double denom) {
         this.numerator *= numer;
         this.denominator *= denom;
+    }
+
+    public void divideByFraction (double numer, double denom) {
+        this.numerator *= denom;
+        this.denominator *= numer;
     }
 
     //Getters
