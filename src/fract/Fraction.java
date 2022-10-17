@@ -1,8 +1,8 @@
-package apcs.fraction;
+package fract;
 
 public class Fraction {
-    public int numerator = 1;
-    public int denominator = (int) ((Math.random() * 10) * Math.random() + 2);
+    public double numerator = 1.0;
+    public double denominator = (Math.random() * 10) * Math.random() + 2;
 
     public String mixedFraction = "";
     //Setters
@@ -22,17 +22,26 @@ public class Fraction {
 
     }
 
+    public void multiplyByInt (int multiplier) {
+        this.numerator *= multiplier;
+    }
+
+    public void multiplyByFraction (int numer, int denom) {
+        this.numerator *= numer;
+        this.denominator *= denom;
+    }
+
     //Getters
 
     public int getNumerator() {
-        return numerator;
+        return (int) numerator;
     }
 
     public int getDenominator() {
-        return denominator;
+        return (int) denominator;
     }
 
     public String getFractionAsString () {
-        return this.mixedFraction + this.numerator + "/" + this.denominator;
+        return this.mixedFraction + this.getNumerator() + "/" + this.getDenominator();
     }
 }
