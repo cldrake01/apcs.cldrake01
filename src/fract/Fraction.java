@@ -1,9 +1,9 @@
 package fract;
 
 public class Fraction {
-    public double numerator = 1.0;
-    public double denominator = (Math.random() * 10) * Math.random() + 2;
-    public double mixedFraction = 0;
+    public int numerator = 1;
+    public int denominator = (int) ((int) (Math.random() * 10) * Math.random() + 2);
+    public int mixedFraction = 0;
 
     /**
      * Setters
@@ -90,7 +90,7 @@ public class Fraction {
      * The getters for Fraction's attributes return the integer version of each attribute, rather than the boolean version.
      */
 
-    public String asString() {
+    public String toString() {
         if (mixedFraction == 0) {
             return this.getNumerator() + "/" + this.getDenominator();
         } else {
