@@ -16,7 +16,7 @@ public class Fraction {
     }
 
     /*
-    Here I'm using a method overloading technique to compensate for the non-optional mixedFraction parameter.
+     * Here I'm using a method overloading technique to compensate for the non-optional mixedFraction parameter.
      */
 
     public void setFraction (int numerator,int denominator) {
