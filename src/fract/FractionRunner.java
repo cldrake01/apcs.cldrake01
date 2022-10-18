@@ -25,7 +25,7 @@ public class FractionRunner {
 
         System.out.println("f1: " + f1.asString() + " f2: " + f2.asString());
 
-        f1.addOrSubtract(f2);
+        f1.subtract(f2);
 
         System.out.println("f1: " + f1.asString());
 
