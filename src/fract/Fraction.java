@@ -5,7 +5,9 @@ public class Fraction {
     public double denominator = (Math.random() * 10) * Math.random() + 2;
     public double mixedFraction = 0;
 
-    //Setters
+    /**
+     * Setters
+     */
 
     public void setNumerator (int numerator) {
         this.numerator = numerator;
@@ -15,7 +17,7 @@ public class Fraction {
         this.denominator = denominator;
     }
 
-    /*
+    /**
      * Here I'm using a method overloading technique to compensate for the non-optional mixedFraction parameter.
      */
 
@@ -54,7 +56,12 @@ public class Fraction {
         this.denominator *= numer;
     }
 
-    //Getters
+    /**
+     * Getters
+     *
+     * The getters for Fraction's attributes return the integer version of each attribute, rather than the boolean version.
+     *
+     */
 
     public String asString () {
         if (mixedFraction == 0) {
