@@ -32,7 +32,7 @@ public class Fraction {
         this.mixedFraction = mixedFraction;
     }
 
-    public void addOrSubtract(Fraction fract) {
+    public void subtract(Fraction fract) {
         fract.numerator *= this.denominator;
         this.numerator *= fract.denominator;
 
@@ -43,6 +43,20 @@ public class Fraction {
             this.numerator -= fract.numerator;
         } else {
             this.numerator = fract.numerator - this.numerator;
+        }
+    }
+
+    public void add(Fraction fract) {
+        fract.numerator *= this.denominator;
+        this.numerator *= fract.denominator;
+
+        this.denominator *= fract.denominator;
+        fract.denominator = this.denominator;
+
+        if(this.numerator >= fract.numerator) {
+            this.numerator += fract.numerator;
+        } else {
+            this.numerator = fract.numerator + this.numerator;
         }
     }
 
