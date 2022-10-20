@@ -7,5 +7,11 @@ public class BirdRunner {
         larry.speak();
         System.out.println(larry.getWeight());
         System.out.println(larry.toString());
+
+        Robin timmy = new Robin();
+
+        timmy.speak();
+        System.out.println(timmy.getWeight());
+        System.out.println(timmy.toString());
     }
 }
