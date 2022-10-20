@@ -53,6 +53,11 @@ public class Fraction {
         } else {
             this.numerator = fract.numerator + this.numerator;
         }
+
+        if(this.numerator >= this.denominator) {
+            this.mixedFraction = this.numerator / this.denominator;
+            this.numerator %= this.denominator;
+        }
     }
 
     /**
@@ -132,4 +137,6 @@ public class Fraction {
     public boolean isMixedFraction() {
         return this.mixedFraction != 0;
     }
+
+
 }
