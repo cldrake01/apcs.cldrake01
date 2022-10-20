@@ -5,7 +5,7 @@ public class Fraction {
     public int denominator = (int) ((int) (Math.random() * 10) * Math.random() + 2);
     public int mixedFraction = 0;
 
-    /**
+    /*
      * Setters
      */
 
@@ -17,7 +17,7 @@ public class Fraction {
         this.denominator = denominator;
     }
 
-    /**
+    /*
      * Here I'm using a method overloading technique to compensate for the non-optional mixedFraction parameter.
      */
 
@@ -26,6 +26,11 @@ public class Fraction {
         this.denominator = denominator;
     }
 
+    /**
+     *
+     * This sets the Fraction in question's numerator, denominator, and (optional) whole number values.
+     *
+     */
     public void setFraction(int numerator, int denominator, int mixedFraction) {
         this.numerator = numerator;
         this.denominator = denominator;
@@ -84,9 +89,9 @@ public class Fraction {
         this.denominator *= numer;
     }
 
-    /**
+    /*
      * Getters
-     * <p>
+     *
      * The getters for Fraction's attributes return the integer version of each attribute, rather than the boolean version.
      */
 
