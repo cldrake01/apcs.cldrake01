@@ -37,7 +37,8 @@ public class Fraction {
     }
 
     /**
-     * This finds a common denominator and then adds the numerator of the input, fract, to the Fraction's numerator value.
+     * This finds a common denominator and then adds the numerator of the input, fract,
+     * to the Fraction's numerator value.
      */
 
     public void add(Fraction fract) {
@@ -100,7 +101,8 @@ public class Fraction {
     /*
      * Getters
      *
-     * The getters for Fraction's attributes return the integer version of each attribute, rather than the boolean version.
+     * The getters for Fraction's attributes return the integer version of each attribute,
+     *  rather than the boolean version.
      */
 
     public String toString() {
@@ -112,15 +114,15 @@ public class Fraction {
     }
 
     public int getNumerator() {
-        return (int) numerator;
+        return this.numerator;
     }
 
     public int getDenominator() {
-        return (int) denominator;
+        return this.denominator;
     }
 
     public int getMixedFraction() {
-        return (int) mixedFraction;
+        return this.mixedFraction;
     }
 
     public boolean compare(Fraction fract) {
