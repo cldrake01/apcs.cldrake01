@@ -137,6 +137,4 @@ public class Fraction {
     public boolean isMixedFraction() {
         return this.mixedFraction != 0;
     }
-
-
 }
