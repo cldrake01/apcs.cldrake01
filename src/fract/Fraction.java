@@ -27,29 +27,22 @@ public class Fraction {
     }
 
     /**
-     *
      * This sets the Fraction in question's numerator, denominator, and (optional) whole number values.
-     *
+     * @param numerator
+     * @param denominator
+     * @param mixedFraction
      */
+
     public void setFraction(int numerator, int denominator, int mixedFraction) {
         this.numerator = numerator;
         this.denominator = denominator;
         this.mixedFraction = mixedFraction;
     }
 
-    public void subtract(Fraction fract) {
-        fract.numerator *= this.denominator;
-        this.numerator *= fract.denominator;
-
-        this.denominator *= fract.denominator;
-        fract.denominator = this.denominator;
-
-        if(this.numerator >= fract.numerator) {
-            this.numerator -= fract.numerator;
-        } else {
-            this.numerator = fract.numerator - this.numerator;
-        }
-    }
+    /**
+     * This finds a common denominator and then adds the numerator of the input, fract, to the Fraction's numerator value.
+     * @param fract
+     */
 
     public void add(Fraction fract) {
         fract.numerator *= this.denominator;
@@ -62,6 +55,26 @@ public class Fraction {
             this.numerator += fract.numerator;
         } else {
             this.numerator = fract.numerator + this.numerator;
+        }
+    }
+
+    /**
+     * This performs the same operation as Fraction.add, with the exception that it subtracts the numerators,
+     * rather than adding them.
+     * @param fract
+     */
+
+    public void subtract(Fraction fract) {
+        fract.numerator *= this.denominator;
+        this.numerator *= fract.denominator;
+
+        this.denominator *= fract.denominator;
+        fract.denominator = this.denominator;
+
+        if(this.numerator >= fract.numerator) {
+            this.numerator -= fract.numerator;
+        } else {
+            this.numerator = fract.numerator - this.numerator;
         }
     }
 
