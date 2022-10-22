@@ -103,9 +103,16 @@ public class Fraction {
         this.denominator *= numer;
     }
 
+    public void simplify() {
+        if(this.numerator % this.denominator == 0) {
+            this.numerator /= this.denominator;
+            this.denominator = (this.numerator / this.denominator);
+        }
+    }
+
+    //Getters
+
     /*
-     * Getters
-     *
      * The getters for Fraction's attributes return the integer version of each attribute,
      *  rather than the boolean version.
      */

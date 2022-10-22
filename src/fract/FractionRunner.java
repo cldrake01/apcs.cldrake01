@@ -18,21 +18,13 @@ public class FractionRunner {
 
         f2.setFraction(inNum, inDen, mixed);
 
-        f1.setFraction(2, 4);
+        f1.setFraction(12, 24);
 
         System.out.println("f1: " + f1 + " f2: " + f2);
 
-        f1.multiplyByInt(3);
+        f1.simplify();
 
         System.out.println("f1: " + f1 + " f2: " + f2);
-
-        f1.multiplyByFraction(f2);
-
-        System.out.println("f1: " + f1 + " f2: " + f2);
-
-        f1.subtract(f2);
-
-        System.out.println("f1: " + f1);
 
         System.out.println("f1, is it a mixed fraction?: " + f1.isMixedFraction() + " f2, is it a mixed fraction?: " + f2.isMixedFraction());
         System.out.println("Does f1 equal f2?: " + f1.compare(f2));
