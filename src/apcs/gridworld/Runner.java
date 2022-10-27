@@ -9,8 +9,9 @@ import info.gridworld.grid.UnboundedGrid;
 public class Runner {
     public static <Actor> void main(String[] args) {
         UnboundedGrid grid = new UnboundedGrid<Actor>();
-        ActorWorld world = new ActorWorld(grid);
         SpiralBug sp = new SpiralBug(3);
+
+        ActorWorld world = new ActorWorld(grid);
         world.add(new Location(3,5),sp);
         world.show();
     }
