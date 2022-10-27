@@ -30,27 +30,39 @@ class Bug extends Actor {
 
     public void move() {
         Grid<Actor> gr = getGrid();
-        if (gr == null)
+        if (gr == null) {
             return;
+        }
+
         Location loc = getLocation();
         Location next = loc.getAdjacentLocation(getDirection());
-        if (gr.isValid(next))
+
+        if (gr.isValid(next)) {
             moveTo(next);
-        else
+        } else {
             removeSelfFromGrid();
+        }
+
         Flower flower = new Flower(getColor());
         flower.putSelfInGrid(gr, loc);
     }
 
     public boolean canMove() {
         Grid<Actor> gr = getGrid();
-        if (gr == null)
+
+        if (gr == null) {
             return false;
+        }
+
         Location loc = getLocation();
         Location next = loc.getAdjacentLocation(getDirection());
-        if (!gr.isValid(next))
+
+        if (!gr.isValid(next)) {
             return false;
+        }
+
         Actor neighbor = gr.get(next);
+
         return (neighbor == null) || (neighbor instanceof Flower);
     }
 }
