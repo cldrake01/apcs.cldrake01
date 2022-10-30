@@ -12,8 +12,6 @@ public class BoxBug extends Bug {
     }
 
     public void act() {
-
-
         if (this.steps < this.sideLength && this.canMove()) {
             this.move();
             this.steps++;
