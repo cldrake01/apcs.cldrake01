@@ -30,5 +30,7 @@ public class ShortCircut {
             main(null);
 
         }
+
+        System.gc();
     }
 }
