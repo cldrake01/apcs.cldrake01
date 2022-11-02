@@ -11,9 +11,13 @@ public class ShortCircut {
             int input = in.nextInt();
 
             if (input != 0 && ((input / 100) > 5)) {
+
                 System.out.println("success");
+
             } else {
+
                 System.out.println("failure");
+
             }
 
         } catch (ArithmeticException e) {
