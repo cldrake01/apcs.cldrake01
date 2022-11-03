@@ -1,7 +1,5 @@
 package guess;
 
-import java.util.Objects;
-
 public class Value {
 
     int value = (int) ((Math.random() * 100) + 1);
