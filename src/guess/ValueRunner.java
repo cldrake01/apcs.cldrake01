@@ -23,6 +23,7 @@ public class ValueRunner {
                     System.out.println("Correct!");
 
                 } else {
+
                     if (input > v1.getValue()) {
 
                         System.out.println("Go lower");
@@ -33,14 +34,13 @@ public class ValueRunner {
 
                     }
                 }
-
             } catch (InputMismatchException e) {
 
                 System.out.println("That's not an integer. Try again.");
 
-            } catch (RangeException j) {
+            } catch (Exception e) {
 
-                System.out.println("That's not between 1 and 100. Try again.");
+                System.out.println("That number isn't between 1 and 100. Try again.");
 
             }
         }
