@@ -9,7 +9,7 @@ public class ValueRunner {
         Value v1 = new Value();
         int input = 0;
 
-        while (!v1.equals(input)) {
+        do {
             try {
 
                 System.out.println("Please enter a number between 1 and 100: ");
@@ -21,7 +21,6 @@ public class ValueRunner {
                     System.out.println("Correct!");
 
                 } else {
-
                     if (input > v1.getValue()) {
 
                         System.out.println("Go lower");
@@ -34,13 +33,13 @@ public class ValueRunner {
                 }
             } catch (InputMismatchException e) {
 
-                System.out.println("That's not an integer. Try again.");
+                System.err.println("That's not an integer. Try again.");
 
             } catch (Exception e) {
 
-                System.out.println("That number isn't between 1 and 100. Try again.");
+                System.err.println("That number isn't between 1 and 100. Try again.");
 
             }
-        }
+        } while (!v1.equals(input));
     }
 }

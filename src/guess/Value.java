@@ -7,7 +7,7 @@ public class Value {
     int value = (int) ((Math.random() * 100) + 1);
 
     public int getValue() {
-        return value;
+        return this.value;
     }
 
     public void setValue(int value) {
