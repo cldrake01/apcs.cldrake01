@@ -1,7 +1,5 @@
 package guess;
 
-import org.w3c.dom.ranges.RangeException;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
