@@ -1,6 +1,9 @@
 package guess;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import static java.lang.Thread.sleep;
 
 public class Value {
 
@@ -22,7 +25,7 @@ public class Value {
 
     }
 
-    public String guess() {
+    public boolean guess() {
         Scanner reader = new Scanner(System.in);
 
         System.out.println("Please enter a number between 1 and 100: ");
@@ -33,7 +36,7 @@ public class Value {
 
             System.out.println("Correct!");
 
-            return " ";
+            return true;
 
         } else if (input < 1 || input > 100) {
 
@@ -55,6 +58,55 @@ public class Value {
             }
         }
 
-        return "";
+        return true;
+
+    }
+
+    public void roboGuess () {
+        Scanner robo = new Scanner(System.in);
+
+        int plus = 1;
+        int times = this.value;
+        int rand = (int) ((Math.random() * times) + plus);
+
+        System.out.println("Please enter a number for me to guess, *wispers* I won't look.");
+
+        try {
+
+            this.value = robo.nextInt();
+
+        } catch (InputMismatchException e) {
+
+            System.err.println("That's not a number, please try again.");
+
+            this.roboGuess();
+
+        }
+
+        while (rand != this.value) {
+            rand = (int) ((Math.random() * times) + plus);
+            if (rand < this.value) {
+
+                System.out.println("I should go higher...");
+
+                plus = rand;
+
+            } else {
+
+                System.out.println("I should go lower...");
+
+                times = rand;
+
+            }
+
+            try {
+                sleep(1000);
+            } catch (InterruptedException e) {
+                continue;
+            }
+        }
+
+        System.out.println("Ha, I win!");
+
     }
 }
