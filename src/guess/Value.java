@@ -101,9 +101,7 @@ public class Value {
 
             try {
                 sleep(1000);
-            } catch (InterruptedException e) {
-                continue;
-            }
+            } catch (InterruptedException e) {}
         }
 
         System.out.println("Ha, I win!");
