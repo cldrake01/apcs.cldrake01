@@ -22,7 +22,7 @@ public class Value {
 
     }
 
-    public String test () {
+    public String guess () {
         Scanner reader = new Scanner(System.in);
 
         System.out.println("Please enter a number between 1 and 100: ");
