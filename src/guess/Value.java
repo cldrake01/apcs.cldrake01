@@ -87,24 +87,25 @@ public class Value {
             rand = (int) ((Math.random() * times) + plus);
             if (rand < this.value) {
 
-                System.out.println("I should go higher...");
+                System.out.println(rand + " I should go higher...");
 
                 plus = rand;
 
+                times--;
+
             } else {
 
-                System.out.println("I should go lower...");
-
-                times = rand;
+                System.out.println(rand + " I should go lower...");
 
             }
-
+/*
             try {
                 sleep(1000);
             } catch (InterruptedException e) {}
+*/
         }
 
-        System.out.println("Ha, I win!");
+        System.out.println(this.value + " Ha, I win!");
 
     }
 }
