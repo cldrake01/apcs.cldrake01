@@ -1,6 +1,10 @@
 package guess;
 
+import java.util.Scanner;
+
 public class Value {
+
+    int input;
 
     int value = (int) ((Math.random() * 100) + 1);
 
@@ -15,6 +19,36 @@ public class Value {
     public Boolean equals (int input) {
 
         return this.value == input;
+
+    }
+
+    public String test () {
+        Scanner reader = new Scanner(System.in);
+
+        System.out.println("Please enter a number between 1 and 100: ");
+
+        this.input = reader.nextInt();
+
+        if (this.equals(input)) {
+
+            System.out.println("Correct!");
+
+            return " ";
+
+        } else {
+
+            if (input > this.getValue()) {
+
+                System.out.println("Go lower");
+
+            } else {
+
+                System.out.println("Go higher");
+
+            }
+        }
+
+        return "";
 
     }
 }
