@@ -69,7 +69,7 @@ public class Value {
         int times = this.value;
         int rand = (int) ((Math.random() * times) + plus);
 
-        System.out.println("Please enter a number for me to guess, *wispers* I won't look.");
+        System.out.println("Please enter a number for me to guess, I won't look: ");
 
         try {
 
@@ -84,28 +84,35 @@ public class Value {
         }
 
         while (rand != this.value) {
+
             rand = (int) ((Math.random() * times) + plus);
-            if (rand < this.value) {
 
-                System.out.println(rand + " I should go higher...");
+           if (rand < this.value) {
 
-                plus = rand;
+                System.out.println("It isn't " + rand + ", I should go higher...");
 
-                times--;
-
+                plus = Math.abs(rand);
+                if (rand == (int) ((Math.random() * times) + plus)) {
+                    rand++;
+                } else {
+                    times = Math.abs(this.value - rand);
+                }
             } else {
 
-                System.out.println(rand + " I should go lower...");
+                System.out.println("It isn't " + rand + ", I should go lower...");
+
+                times -= Math.abs(rand);
 
             }
-/*
+
             try {
                 sleep(1000);
-            } catch (InterruptedException e) {}
-*/
+            } catch (InterruptedException e) {
+
+            }
         }
 
-        System.out.println(this.value + " Ha, I win!");
+        System.out.print("Ha, I win.");
 
     }
 }
