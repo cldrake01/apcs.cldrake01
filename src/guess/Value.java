@@ -112,7 +112,7 @@ public class Value {
             }
         }
 
-        System.out.print("Ha, I win.");
+        System.out.print("It's "+ rand + ", I win.");
 
     }
 }
