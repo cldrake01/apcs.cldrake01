@@ -9,6 +9,8 @@ public class Value {
 
     int input;
 
+    int guesses = 0;
+
     int value = (int) ((Math.random() * 100) + 1);
 
     public int getValue() {
@@ -32,11 +34,15 @@ public class Value {
 
             System.out.println("Please enter a number between 1 and 100: ");
 
-            this.input = reader.nextInt();
+            input = reader.nextInt();
 
             if (this.equals(input)) {
 
-                System.out.println("Correct!");
+                this.guesses++;
+
+                System.out.println("Correct! It took you " + this.guesses + " guesses.");
+
+                this.guesses = 0;
 
             } else if (input < 1 || input > 100) {
 
@@ -47,12 +53,18 @@ public class Value {
             } else {
                 if (input > this.getValue()) {
 
-                    System.out.println("Go lower");
+                    System.out.println("It's less than " + input + ".");
+
+                    this.guesses++;
+
                     this.guess();
 
                 } else {
 
-                    System.out.println("Go higher");
+                    System.out.println("It's greater than " + input + ".");
+
+                    this.guesses++;
+
                     this.guess();
 
                 }
@@ -109,14 +121,20 @@ public class Value {
 
             }
 
+            this.guesses++;
+
             try {
+
                 sleep(1000);
+
             } catch (InterruptedException e) {
                 // The  program waits one second before guessing.
             }
         }
 
-        System.out.print("It's " + rand + ", I win.");
+        System.out.print("It's " + rand + ", I win with " + (this.guesses + 1) + " guesses.");
+
+        this.guesses = 0;
 
     }
 }
