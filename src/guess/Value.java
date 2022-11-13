@@ -25,44 +25,48 @@ public class Value {
 
     }
 
-    public boolean guess() {
+    public void guess() {
         Scanner reader = new Scanner(System.in);
 
-        System.out.println("Please enter a number between 1 and 100: ");
+        try {
 
-        this.input = reader.nextInt();
+            System.out.println("Please enter a number between 1 and 100: ");
 
-        if (this.equals(input)) {
+            this.input = reader.nextInt();
 
-            System.out.println("Correct!");
+            if (this.equals(input)) {
 
-            return true;
+                System.out.println("Correct!");
 
-        } else if (input < 1 || input > 100) {
+            } else if (input < 1 || input > 100) {
 
-            System.err.println("That number isn't between 1 and 100, please try again. ");
+                System.err.println("That number isn't between 1 and 100, please try again. ");
 
-            this.guess();
-
-        } else {
-            if (input > this.getValue()) {
-
-                System.out.println("Go lower");
                 this.guess();
 
             } else {
+                if (input > this.getValue()) {
 
-                System.out.println("Go higher");
-                this.guess();
+                    System.out.println("Go lower");
+                    this.guess();
 
+                } else {
+
+                    System.out.println("Go higher");
+                    this.guess();
+
+                }
             }
+        } catch (Exception e) {
+
+            System.err.println("That's not an integer, please try again.");
+
+            this.guess();
+
         }
-
-        return true;
-
     }
 
-    public void roboGuess () {
+    public void roboGuess() {
         Scanner robo = new Scanner(System.in);
 
         int plus = 1;
@@ -87,7 +91,7 @@ public class Value {
 
             rand = (int) ((Math.random() * times) + plus);
 
-           if (rand < this.value) {
+            if (rand < this.value) {
 
                 System.out.println("It isn't " + rand + ", I should go higher...");
 
@@ -108,11 +112,11 @@ public class Value {
             try {
                 sleep(1000);
             } catch (InterruptedException e) {
-
+                // The  program waits one second before guessing.
             }
         }
 
-        System.out.print("It's "+ rand + ", I win.");
+        System.out.print("It's " + rand + ", I win.");
 
     }
 }
