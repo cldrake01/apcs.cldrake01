@@ -55,19 +55,13 @@ public class Value {
 
                     System.out.println("It's less than " + input + ".");
 
-                    this.guesses++;
-
-                    this.guess();
-
                 } else {
 
                     System.out.println("It's greater than " + input + ".");
 
-                    this.guesses++;
-
-                    this.guess();
-
                 }
+                this.guesses++;
+                this.guess();
             }
         } catch (Exception e) {
 
