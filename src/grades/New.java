@@ -1,4 +1,4 @@
-package guess;
+package grades;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,9 +8,8 @@ import java.util.Scanner;
 // Note that this file is runnable for your convenience, but will be usable with any runner provided.
 
 // This is my resubmitted code, the older code is stored in the files:
-// cldrake01.guess.Value,
-// cldrake01.guess.ValueRunner,
-// and cldrake01.guess.ValueTester.
+// cldrake01.grades.GradeRunner,
+// and cldrake01.grades.testEx.
 
 public class New {
     // Extension: This program allows for any number of test scores to be entered.
