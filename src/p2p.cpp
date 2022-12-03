@@ -3,7 +3,18 @@
 //  
 //
 //  Created by Collin Drake on 12/3/22.
-//
+
+// Chrome version:
+
+/*
+* #!/bin/bash
+*
+* #Download the image
+* wget https://www.peaktopeak.org/cms/lib/CO02222769/Centricity/Shared/Staff%20Photos/JOSH%20BENSON-cropped.jpg
+*
+* #Set the image as the wallpaper
+* gsettings set org.gnome.desktop.background picture-uri file:///home/JOSH%20BENSON-cropped.jpg
+*/
 
 #include <stdio.h>
 #include <Windows.h>
