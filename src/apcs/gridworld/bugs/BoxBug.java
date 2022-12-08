@@ -1,4 +1,4 @@
-package apcs.gridworld;
+package apcs.gridworld.bugs;
 
 import info.gridworld.actor.Bug;
 

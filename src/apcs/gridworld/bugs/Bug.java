@@ -1,4 +1,4 @@
-package apcs.gridworld;
+package apcs.gridworld.bugs;
 
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.Flower;
@@ -7,7 +7,7 @@ import info.gridworld.grid.Location;
 
 import java.awt.Color;
 
-class Bug extends Actor {
+public class Bug extends Actor {
 
     public Bug() {
         setColor(Color.RED);

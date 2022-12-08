@@ -1,5 +1,8 @@
 package apcs.gridworld;
 
+import apcs.gridworld.bugs.BoxBug;
+import apcs.gridworld.bugs.Bug;
+import apcs.gridworld.bugs.SpiralBug;
 import info.gridworld.actor.ActorWorld;
 import info.gridworld.grid.Location;
 import info.gridworld.grid.UnboundedGrid;

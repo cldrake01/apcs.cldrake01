@@ -1,4 +1,6 @@
-package apcs.gridworld;
+package apcs.gridworld.bugs;
+
+import apcs.gridworld.bugs.Bug;
 
 public class SpiralBug extends Bug {
 
