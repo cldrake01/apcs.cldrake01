@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class SoundRunner {
     public static void main(String[] args) {
-
         Sound sound = new Sound();
+        
         System.out.println("Before trimSilenceFromBeginning(): " + Arrays.toString(sound.samples)); 
         // Before trimSilenceFromBeginning(): [0, 0, 0, 0, -14, 0, -35, -39, 0, -7, 16, 32, 37, 29, 0, 0]
         sound.trimSilenceFromBeginning();
