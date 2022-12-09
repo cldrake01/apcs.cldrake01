@@ -7,9 +7,11 @@ public class Sound {
         public int limitAmplitude(int limit) {
 
                 int changes = 0;
-                // This code segment is fairly self-explanatory, it counts the changes made to samples with the variable
-                // changes, adding to changes when a variable exceeds the permitted amplitude, e.g.
-                // samples[indexOfVarToBeChecked] cannot be greater than, or less than, limit or -limit.
+                /*
+                 This code segment counts the changes made to samples with the variable
+                 changes, adding to changes when a variable exceeds the permitted amplitude, e.g.
+                 samples[indexOfVarToBeChecked] cannot be greater than, or less than, limit or -limit.
+                 */
                 for(int indexOfVarToBeChecked = 0; indexOfVarToBeChecked < this.samples.length; indexOfVarToBeChecked++) {
                         if (this.samples[indexOfVarToBeChecked] > limit || this.samples[indexOfVarToBeChecked] < -limit) {
 
@@ -27,8 +29,9 @@ public class Sound {
         }
 
         public void trimSilenceFromBeginning() {
-
-                // This code segment sets the variable zeroIndex equal to the index of the first non-zero integer.
+                /*
+                  This code segment sets the variable zeroIndex equal to the index of the first non-zero integer.
+                 */
                 int zeroIndex = 0;
                 for (int i = 0; i < this.samples.length; i++) {
                         if (this.samples[i] != 0) {
@@ -38,10 +41,11 @@ public class Sound {
                 }
 
                 int[] newArray = new int[this.samples.length - (zeroIndex + 1)];
-
-                // This code segment sets the entirety of newArray to the values of sample beginning at zeroIndex, e.g.
-                // samples[zeroIndex], newArray is then looped through beginning at 0, e.g. newArray[newArrayIndex] or
-                // more simply newArray[0].
+                /*
+                  This code segment sets the entirety of newArray to the values of sample beginning at zeroIndex, e.g.
+                  samples[zeroIndex], newArray is then looped through beginning at 0, e.g. newArray[newArrayIndex] or
+                  more simply newArray[0].
+                 */
                 int newArrayIndex = 0;
                 for (int i = zeroIndex; i < this.samples.length - zeroIndex + 1; i++) {
                         newArray[newArrayIndex] = this.samples[i];
