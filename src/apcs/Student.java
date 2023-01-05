@@ -23,7 +23,6 @@ public class Student {
     public Student(int id) {
         this.name = "";
         this.id = id;
-
     }
 
     /**
