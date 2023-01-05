@@ -4,7 +4,7 @@ package apcs;
 public class StudentRunner {
     public static void main(String[] args) {
         System.out.println("Building Student 1");
-        newStudent s1 = new newStudent(123456);
+        Student s1 = new Student(123456);
         System.out.println (s1);
         s1.setName("Sergio Aguilar");
         System.out.println (s1);
@@ -35,7 +35,7 @@ public class StudentRunner {
         System.out.println ();
 
         System.out.println("Building Student 2");
-        newStudent s2 = new newStudent(987654);
+        Student s2 = new Student(987654);
         System.out.println (s2);
         s2.setName("Sarah Bates");
         System.out.println (s2);
@@ -55,7 +55,7 @@ public class StudentRunner {
         System.out.println ();
 
         System.out.println("Building Student 3 (with same id as Student 1)");
-        newStudent s3 = new newStudent("Herman Johnson", 123456, 98.0, 96.0, 82.0);
+        Student s3 = new Student("Herman Johnson", 123456, 98.0, 96.0, 82.0);
         System.out.println (s3);
         System.out.println ("Average score: " + s3.getAverage());
         System.out.println ("Maximum score: " + s3.getMaximum());

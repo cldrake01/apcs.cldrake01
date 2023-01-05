@@ -9,7 +9,7 @@ import java.util.Optional;
  * functionality to the Student class.
  */
 
-public class newStudent {
+public class Student {
 
     private List<Double> grades = new ArrayList<>();
     private String name;
@@ -20,7 +20,7 @@ public class newStudent {
      *
      * @param id the student id
      */
-    public newStudent(int id) {
+    public Student(int id) {
         this.name = "";
         this.id = id;
 
@@ -33,7 +33,7 @@ public class newStudent {
      * @param id    The student's id number
      * @param tests The student's tests score
      */
-    public newStudent(String name, int id, Double... tests) {
+    public Student(String name, int id, Double... tests) {
         this.name = name;
         this.id = id;
         this.grades.addAll(List.of(tests));
@@ -122,7 +122,7 @@ public class newStudent {
         return "Student Name: " + this.name + " id: " + this.id + " Tests: " + this.grades.toString();
     }
 
-    public boolean equals(newStudent other) {
+    public boolean equals(Student other) {
         if (this.id == other.getId())
             return true;
         else
