@@ -31,6 +31,7 @@ public class StudentRunner {
         System.out.println ("Average score: " + s1.getAverage());
         System.out.println ("Maximum score: " + s1.getMaximum());
 
+
         System.out.println ();
 
         System.out.println("Building Student 2");
