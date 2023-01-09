@@ -1,130 +1,78 @@
 package apcs;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-/**
- * The newStudent class uses ArrayList class exclusively, rather than an array, which is identical in
- * functionality to the Student class.
- */
+import java.util.Arrays;
 
 public class Student {
-
-    private List<Double> grades = new ArrayList<>();
+    private double[] grades;
     private String name;
     private int id;
 
-    /**
-     * Creates a new instance of Student with the specified id number.  Test scores are initialized to 0.
-     *
-     * @param id the student id
-     */
     public Student(int id) {
         this.name = "";
         this.id = id;
+        this.grades = new double[0];
     }
 
-    /**
-     * Creates a new instance of Student in which all fields are settable.
-     *
-     * @param name  The student's name
-     * @param id    The student's id number
-     * @param tests The student's tests score
-     */
-    public Student(String name, int id, Double... tests) {
+    public Student(String name, int id, double... tests) {
         this.name = name;
         this.id = id;
-        this.grades.addAll(List.of(tests));
+        this.grades = tests;
     }
 
-    /**
-     * Retrieves a student's name
-     *
-     * @return The student's name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Sets a student's name
-     *
-     * @param name The student's name
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * Retrieve's a student's id
-     *
-     * @return the student id number
-     */
     public int getId() {
         return this.id;
     }
 
-    /**
-     * Retrieves one test score for a student
-     *
-     * @param test which test number to retrieve (1 through 3)
-     * @return The specified test score
-     */
-    public Optional<Double> getScore(int test) {
-        return this.grades.stream().findFirst();
-    }
-
-    /**
-     * Updates a test score for a Student.
-     *
-     * @param test  The test number to update (1 through 3)
-     * @param score The new test score
-     */
-    public void setScore(int test, double score) {
-        test -= 1;
-        try {
-            this.grades.set(test, score);
-        } catch (Exception e) {
-            this.grades.add(grades.size(), score);
+    public double getScore(int test) {
+        if (test > 0.0 && test <= grades.length) {
+            return grades[test - 1];
+        } else {
+            return 0.0;
         }
     }
 
-    /**
-     * Calculates and returns the average of any tests taken
-     *
-     * @return The average score of all three tests
-     */
+    public void setScore(int test, double score) {
+        if (test <= 0 || test > grades.length) {
+            grades = Arrays.copyOf(grades, test);
+            // This essentially makes the array equivalent in its
+            // functionality to an ArrayList.
+        }
+        grades[test - 1] = score;
+    }
+
     public double getAverage() {
         double sum = 0;
-        double avg = 0;
-
-        for (int i = 0; i < grades.size(); i++) {
-            sum += grades.get(i);
-
-            avg = sum / grades.size();
+        for (double grade : grades) {
+            sum += grade;
         }
-
-        return avg;
+        if (sum / grades.length > 0 ) {
+            return sum / grades.length;
+        } else {
+            return 0;   // To avoid NaN values.
+        }
     }
 
-    /**
-     * Gets and returns the highest test score
-     *
-     * @return the maximum test score
-     */
-    public Optional<Double> getMaximum() {
-        return this.grades.stream().max(Double::compareTo);
+    public double getMaximum() {
+        double max = 0.0;
+        for (double grade : grades) {
+            max = Math.max(max, grade);
+        }
+        return max;
     }
 
     public String toString() {
-        return "Student Name: " + this.name + " id: " + this.id + " Tests: " + this.grades.toString();
+        return "Student Name: " + this.name + " id: " + this.id + " Tests: " + Arrays.toString(this.grades);
     }
 
     public boolean equals(Student other) {
-        if (this.id == other.getId())
-            return true;
-        else
-            return false;
+        return this.id == other.getId();
     }
 }
