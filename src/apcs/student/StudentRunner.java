@@ -1,4 +1,4 @@
-package apcs;
+package apcs.student;
 
 public class StudentRunner {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package apcs;
+package apcs.student;
 
 import java.util.ArrayList;
 import java.util.List;
