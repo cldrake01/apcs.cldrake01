@@ -1,4 +1,4 @@
-package fract;
+package apcs.fract;
 
 public class Fraction {
     public int numerator = 1;

@@ -1,4 +1,4 @@
-package lucky7;
+package apcs.lucky7;
 import java.util.Scanner;
 
 public class Lucky7 {

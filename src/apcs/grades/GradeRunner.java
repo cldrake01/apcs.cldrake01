@@ -1,4 +1,4 @@
-package grades;
+package apcs.grades;
 
 public class GradeRunner {
     public static void main(String[] args) {

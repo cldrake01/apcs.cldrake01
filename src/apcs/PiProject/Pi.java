@@ -1,4 +1,4 @@
-package PiProject;
+package apcs.PiProject;
 import java.util.Scanner;
 
 public class Pi {

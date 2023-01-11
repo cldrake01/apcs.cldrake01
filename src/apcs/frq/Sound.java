@@ -1,4 +1,4 @@
-package frq;
+package apcs.frq;
 
 public class Sound {
 

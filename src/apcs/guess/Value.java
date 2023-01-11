@@ -1,4 +1,4 @@
-package guess;
+package apcs.guess;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

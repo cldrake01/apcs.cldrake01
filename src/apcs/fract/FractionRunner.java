@@ -1,4 +1,4 @@
-package fract;
+package apcs.fract;
 
 import java.util.Scanner;
 
