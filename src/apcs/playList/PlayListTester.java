@@ -1,7 +1,5 @@
 package apcs.playList;
 
-import java.io.Reader;
-
 public class PlayListTester {
     public static void main(String[] args) {
         PlayList playList = new PlayList("My Playlist");

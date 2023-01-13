@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PlayList {
     String name;
-    ArrayList<Song> songs = new ArrayList<Song>();
+    ArrayList<Song> songs = new ArrayList<>();
 
     public PlayList() {
         this.name = "New Playlist";
@@ -32,7 +32,7 @@ public class PlayList {
 
     @Override
     public String toString() {
-        return this.name +
+        return getClass().getName().replace(".PlayList", "") +
                 ": " +
                 this.songs.toString() +
                 "\n";
