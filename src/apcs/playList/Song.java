@@ -28,24 +28,26 @@ public class Song {
     }
 
     public String getName() {
-        return songName;
+        return this.songName;
     }
 
     public int getPlays() {
-        return plays;
+        return this.plays;
     }
 
     public void play() {
         this.plays++;
-        try {
-            wait(time);
-        } catch (InterruptedException e) {
+        synchronized (this) {
+            try {
+                wait(this.time);
+            } catch (InterruptedException ignored) {
 
+            }
         }
     }
 
     @Override
     public String toString() {
-        return "Title: '" + songName + '\'' + "; Plays: '" + plays + '\'';
+        return "Title: '" + this.songName + '\'' + "; Plays: '" + this.plays + '\'';
     }
 }
