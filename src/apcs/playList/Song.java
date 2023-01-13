@@ -1,7 +1,5 @@
 package apcs.playList;
 
-import jdk.jfr.Timespan;
-
 public class Song {
     String songName;
     String artist;
