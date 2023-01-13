@@ -39,10 +39,20 @@ public class PlayList {
 
     public void moveTo(String song, int position) {
         for (int i = 0; i < songs.size(); i++) {
-            if (song.matches("(.*)" + songs.get(i).getName() + "(.*)")) {
+            if (songs.get(i).getName().matches("(.*)" + song + "(.*)")) {
                 songs.add(position, songs.get(i));
-                songs.remove(i);
+                if (position < i) {
+                    songs.remove(i + 1);
+                } else if (position > i) {
+                    songs.remove(i - 1);
+                }
             }
+        }
+    }
+
+    public void play(String song) {
+        for (Song i : songs) {
+            if (i.getName().matches("(.*)" + song + "(.*)")) i.play();
         }
     }
 }

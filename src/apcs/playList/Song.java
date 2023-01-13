@@ -4,18 +4,25 @@ public class Song {
     String songName;
     String artist;
     int plays = 0;
+    double time;
 
-    public Song (String name) {
+    public Song(String name) {
         this.songName = name;
-    }
-
-    public Song (String name, String artist) {
-        this.songName = name;
-         this.artist = artist;
     }
 
     public void setName(String name) {
         this.songName = name;
+    }
+
+    public Song(String name, double time) {
+        this.songName = name;
+        this.time = time;
+    }
+
+    public Song(String name, double time, String artist) {
+        this.songName = name;
+        this.artist = artist;
+        this.time = time;
     }
 
     public String getName() {
@@ -26,12 +33,12 @@ public class Song {
         return plays;
     }
 
-    public void setPlays(int plays) {
-        this.plays = plays;
+    public void play() {
+        this.plays++;
     }
 
     @Override
     public String toString() {
-        return  "Title: '" + songName + '\'' + "; Plays: '" + plays + '\'';
+        return "Title: '" + songName + '\'' + "; Plays: '" + plays + '\'';
     }
 }
