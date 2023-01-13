@@ -40,9 +40,7 @@ public class Song {
         synchronized (this) {
             try {
                 wait(this.time);
-            } catch (InterruptedException ignored) {
-
-            }
+            } catch (InterruptedException ignored) {}
         }
     }
 
