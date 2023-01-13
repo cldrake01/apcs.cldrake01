@@ -4,7 +4,7 @@ public class Song {
     String songName;
     String artist;
     int plays = 0;
-    long time = 0;
+    long time = 1;
 
     public Song(String name) {
         this.songName = name;
@@ -44,6 +44,13 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Title: '" + this.songName + '\'' + "; Plays: '" + this.plays + '\'';
+        return (this.time / 100) % 60 >= 10
+                ?
+                "\nTitle: " + this.songName + ", Plays: " + this.plays + ", Duration: " + (this.time / 100) / 60 + ":"
+                        + (this.time / 100) % 60
+                :
+                "\nTitle: " + this.songName + ", Plays: " + this.plays + ", Duration: " + (this.time / 100) / 60 + ":0"
+                        + (this.time / 100) % 60
+                ;
     }
 }

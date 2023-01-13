@@ -32,9 +32,10 @@ public class PlayList {
 
     @Override
     public String toString() {
-        return "PlayList{" +
-                "songs=" + songs.toString() +
-                '}';
+        return this.name +
+                ": " +
+                this.songs.toString() +
+                "\n";
     }
 
     public void moveTo(String song, int position) {
