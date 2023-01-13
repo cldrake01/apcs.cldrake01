@@ -33,7 +33,16 @@ public class PlayList {
     @Override
     public String toString() {
         return "PlayList{" +
-                "songs=" + songs +
+                "songs=" + songs.toString() +
                 '}';
+    }
+
+    public void moveTo(String song, int position) {
+        for (int i = 0; i < songs.size(); i++) {
+            if (song.matches("(.*)" + songs.get(i).getName() + "(.*)")) {
+                songs.add(position, songs.get(i));
+                songs.remove(i);
+            }
+        }
     }
 }
