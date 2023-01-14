@@ -38,40 +38,28 @@ public class Song {
         this.plays++;
         synchronized (this) {
             try {
-                this.playSound();
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                File file = new File(this.path);
+
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+
+                AudioFormat format = audioInputStream.getFormat();
+
+                long audioFileLength = file.length();
+                this.time = audioFileLength;
+                int frameSize = format.getFrameSize();
+                float frameRate = format.getFrameRate();
+                float durationInSeconds = (audioFileLength / (frameSize * frameRate));
+                this.time = (long) durationInSeconds;
+
+                DataLine.Info info = new DataLine.Info(Clip.class, format);
+                Clip clip = (Clip) AudioSystem.getLine(info);
+                clip.open(audioInputStream);
+                clip.start();
+                wait((long) (durationInSeconds * 1000));
+                clip.close();
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException e) {
                 throw new RuntimeException(e);
             }
-        }
-    }
-
-    public void playSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        try {
-            //Path absolutePath = FileSystems.getDefault().getPath("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/playList").toAbsolutePath();
-            //File file = new File(absolutePath + "/Airborne_Grooves.wav");
-            File file = new File(this.path);
-
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-
-            AudioFormat format = audioInputStream.getFormat();
-
-            long audioFileLength = file.length();
-            this.time = audioFileLength;
-            int frameSize = format.getFrameSize();
-            float frameRate = format.getFrameRate();
-            float durationInSeconds = (audioFileLength / (frameSize * frameRate));
-            this.time = (long) durationInSeconds;
-
-            DataLine.Info info = new DataLine.Info(Clip.class, format);
-            Clip clip = (Clip) AudioSystem.getLine(info);
-            clip.open(audioInputStream);
-            clip.start();
-            wait((long) (durationInSeconds * 1000));
-            clip.close();
-        } catch (UnsupportedAudioFileException | IOException ex) {
-            ex.printStackTrace();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
     }
 
