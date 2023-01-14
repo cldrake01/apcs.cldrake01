@@ -4,8 +4,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class PlayList {
+    Scanner input = new Scanner(System.in);
+    ;
+
     String name;
     ArrayList<Song> songs = new ArrayList<>();
 
@@ -28,10 +32,14 @@ public class PlayList {
 
     @Override
     public String toString() {
-        return getClass().getName().replace(".PlayList", "") +
-                ": " +
-                this.songs.toString() +
-                "\n";
+        return (this.name != "")
+                ?
+                this.name + ": " + this.songs.toString() + "\n"
+                :
+                getClass().getName()
+                        .replace(".PlayList", "")
+                        + ": " + this.songs.toString() + "\n"
+                ;
     }
 
     public void add(Song... songs) {
@@ -63,7 +71,11 @@ public class PlayList {
         }
     }
 
-    public void skip() {
-
+    public void play(int song) {
+        try {
+            songs.get(song - 1).play();
+        } catch (Exception ignored) {
+            System.err.println("That song number can't be found within this playlist.");
+        }
     }
 }
