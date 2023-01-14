@@ -15,8 +15,9 @@ public class PlayListTester {
                 new Song("Undulation", "/Users/collindrake/Downloads/Undulation.wav")
         );
         System.out.println(playList);
+        playList.moveTo("Air", 0);
+        System.out.println(playList);
         playList.play();
-        playList.moveTo("Oracle", 0);
         System.out.println(playList);
     }
 }
