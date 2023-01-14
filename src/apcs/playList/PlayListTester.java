@@ -1,7 +1,7 @@
 package apcs.playList;
 
 public class PlayListTester {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         PlayList playList = new PlayList("My Playlist");
         playList.add(new Song("Metadata"), new Song("AES", 800), new Song("The Orwellian Oracle"));
         System.out.println(playList);
