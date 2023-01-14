@@ -51,6 +51,12 @@ public class PlayList {
         }
     }
 
+    public void play() {
+        for (Song i : songs) {
+            i.play();
+        }
+    }
+
     public void play(String song) {
         for (Song i : songs) {
             if (i.getName().matches("(.*)" + song + "(.*)")) i.play();
