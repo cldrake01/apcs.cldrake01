@@ -60,19 +60,16 @@ public class Song {
             int frameSize = format.getFrameSize();
             float frameRate = format.getFrameRate();
             float durationInSeconds = (audioFileLength / (frameSize * frameRate));
-
-            System.out.println((long) (durationInSeconds * 1000));
+            this.time = (long) durationInSeconds;
 
             DataLine.Info info = new DataLine.Info(Clip.class, format);
             Clip clip = (Clip) AudioSystem.getLine(info);
             clip.open(audioInputStream);
             clip.start();
-            wait((long) (durationInSeconds * 1000));
+            //wait((long) (durationInSeconds * 1000));
             clip.close();
         } catch (UnsupportedAudioFileException | IOException ex) {
             ex.printStackTrace();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -82,13 +79,13 @@ public class Song {
 
     @Override
     public String toString() {
-        return (this.time / 100) % 60 >= 10
+        return this.time % 60 >= 10
                 ?
-                "\nTitle: " + this.songName + ", Plays: " + this.plays + ", Duration: " + (this.time / 100) / 60 + ":"
-                        + (this.time / 100) % 60
+                "\nTitle: " + this.songName + ", Plays: " + this.plays + ", Duration: " + this.time / 60 + ":"
+                        + this.time % 60
                 :
-                "\nTitle: " + this.songName + ", Plays: " + this.plays + ", Duration: " + (this.time / 100) / 60 + ":0"
-                        + (this.time / 100) % 60
+                "\nTitle: " + this.songName + ", Plays: " + this.plays + ", Duration: " + this.time / 60 + ":0"
+                        + this.time % 60
                 ;
     }
 }

@@ -12,7 +12,7 @@ public class PlayListTester {
         playList.add(
                 new Song("FYMAM", "/Users/collindrake/Downloads/Free_Your_Mind_About_Music.wav"),
                 new Song("Airborne Grooves", "/Users/collindrake/Downloads/Airborne_Grooves.wav"),
-                new Song("The Orwellian Oracle")
+                new Song("Undulation", "/Users/collindrake/Downloads/Undulation.wav")
         );
         System.out.println(playList);
         playList.play();
