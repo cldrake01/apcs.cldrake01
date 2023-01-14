@@ -3,8 +3,11 @@ package apcs.playList;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Song {
+    Scanner in = new Scanner(System.in);
+
     String path = "";
     String songName;
     int plays = 0;
@@ -71,6 +74,10 @@ public class Song {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void skip() {
+
     }
 
     @Override

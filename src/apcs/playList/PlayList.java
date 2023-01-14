@@ -26,16 +26,16 @@ public class PlayList {
         return songs;
     }
 
-    public void add(Song... songs) {
-        this.songs.addAll(List.of(songs));
-    }
-
     @Override
     public String toString() {
         return getClass().getName().replace(".PlayList", "") +
                 ": " +
                 this.songs.toString() +
                 "\n";
+    }
+
+    public void add(Song... songs) {
+        this.songs.addAll(List.of(songs));
     }
 
     public void moveTo(String song, int position) {
@@ -61,5 +61,9 @@ public class PlayList {
         for (Song i : songs) {
             if (i.getName().matches("(.*)" + song + "(.*)")) i.play();
         }
+    }
+
+    public void skip() {
+
     }
 }
