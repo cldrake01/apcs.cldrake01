@@ -66,10 +66,12 @@ public class Song {
             Clip clip = (Clip) AudioSystem.getLine(info);
             clip.open(audioInputStream);
             clip.start();
-            //wait((long) (durationInSeconds * 1000));
+            wait((long) (durationInSeconds * 1000));
             clip.close();
         } catch (UnsupportedAudioFileException | IOException ex) {
             ex.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
