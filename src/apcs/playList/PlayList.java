@@ -4,12 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class PlayList {
-    Scanner input = new Scanner(System.in);
-    ;
-
     String name;
     ArrayList<Song> songs = new ArrayList<>();
 
@@ -46,7 +42,7 @@ public class PlayList {
         this.songs.addAll(List.of(songs));
     }
 
-    public void moveTo(String song, int position) {
+    public void move(String song, int position) {
         for (int i = 0; i < songs.size(); i++) {
             if (songs.get(i).getName().matches("(.*)" + song + "(.*)")) {
                 songs.add(position, songs.get(i));
@@ -61,19 +57,19 @@ public class PlayList {
 
     public void play() {
         for (Song i : songs) {
-            i.play();
+            if (i.path != "") i.play();
         }
     }
 
     public void play(String song) {
         for (Song i : songs) {
-            if (i.getName().matches("(.*)" + song + "(.*)")) i.play();
+            if (i.getName().matches("(.*)" + song + "(.*)") && i.path != "") i.play();
         }
     }
 
     public void play(int song) {
         try {
-            songs.get(song - 1).play();
+            if (songs.get(song).path != "") songs.get(song - 1).play();
         } catch (Exception ignored) {
             System.err.println("That song number can't be found within this playlist.");
         }
