@@ -63,10 +63,6 @@ public class Song {
         }
     }
 
-    public void skip() {
-
-    }
-
     @Override
     public String toString() {
         return this.time % 60 >= 10

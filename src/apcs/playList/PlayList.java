@@ -71,7 +71,7 @@ public class PlayList {
 
     public void play(int song) {
         try {
-            if (songs.get(song).path != "") songs.get(song - 1).play();
+            if (!Objects.equals(songs.get(song).path, "")) songs.get(song - 1).play();
         } catch (Exception ignored) {
             System.err.println("That song number can't be found within this playlist.");
         }
