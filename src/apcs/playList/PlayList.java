@@ -4,9 +4,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PlayList {
     String name;
+    boolean repeat = false;
     ArrayList<Song> songs = new ArrayList<>();
 
     public PlayList() {
@@ -57,13 +59,13 @@ public class PlayList {
 
     public void play() {
         for (Song i : songs) {
-            if (i.path != "") i.play();
+            if (!Objects.equals(i.path, "")) i.play();
         }
     }
 
     public void play(String song) {
         for (Song i : songs) {
-            if (i.getName().matches("(.*)" + song + "(.*)") && i.path != "") i.play();
+            if (i.getName().matches("(.*)" + song + "(.*)") && !Objects.equals(i.path, "")) i.play();
         }
     }
 
@@ -72,6 +74,20 @@ public class PlayList {
             if (songs.get(song).path != "") songs.get(song - 1).play();
         } catch (Exception ignored) {
             System.err.println("That song number can't be found within this playlist.");
+        }
+    }
+
+    public void repeat() {
+        repeat = !this.repeat;
+        while(this.repeat) {
+            play();
+        }
+    }
+
+    public void repeat(String song) {
+        repeat = !this.repeat;
+        while(this.repeat) {
+            play(song);
         }
     }
 }

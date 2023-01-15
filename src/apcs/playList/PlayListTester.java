@@ -22,7 +22,7 @@ public class PlayListTester {
         System.out.println(playList);
 
         playList.move("Air", 0);
-        playList.play("Air");
+        playList.repeat("Air");
 
         System.out.println(playList);
     }
