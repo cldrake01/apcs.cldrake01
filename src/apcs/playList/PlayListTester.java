@@ -13,6 +13,9 @@ public class PlayListTester {
                 new Song("Airborne Grooves", "/Users/collindrake/Downloads/Airborne_Grooves.wav")
         );
 
+        playList.rate("Air", 5);
+        playList.rate(0, 4);
+
         System.out.println(playList);
 
         playList.add(

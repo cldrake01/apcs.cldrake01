@@ -11,6 +11,7 @@ public class Song {
     String path = "";
     String songName;
     int plays = 0;
+    int rating = 0;
     long time = 1;
 
     public Song(String name) {
@@ -32,6 +33,10 @@ public class Song {
 
     public int getPlays() {
         return this.plays;
+    }
+
+    public void rate(int rating) {
+        this.rating = rating;
     }
 
     public void play() {
@@ -68,10 +73,10 @@ public class Song {
         return this.time % 60 >= 10
                 ?
                 "\nTitle: " + this.songName + ", Plays: " + this.plays + ", Duration: " + this.time / 60 + ":"
-                        + this.time % 60
+                        + this.time % 60 + ", Rating: " + this.rating
                 :
                 "\nTitle: " + this.songName + ", Plays: " + this.plays + ", Duration: " + this.time / 60 + ":0"
-                        + this.time % 60
+                        + this.time % 60 + ", Rating: " + this.rating
                 ;
     }
 }

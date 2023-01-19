@@ -71,7 +71,7 @@ public class PlayList {
 
     public void play(int song) {
         try {
-            if (!Objects.equals(songs.get(song).path, "")) songs.get(song - 1).play();
+            if (!Objects.equals(songs.get(song).path, "")) songs.get(song).play();
         } catch (Exception ignored) {
             System.err.println("That song number can't be found within this playlist.");
         }
@@ -88,6 +88,16 @@ public class PlayList {
         repeat = !this.repeat;
         while(this.repeat) {
             play(song);
+        }
+    }
+
+    public void rate(int index, int rating) {
+        songs.get(index).rate(rating);
+    }
+
+    public void rate(String song, int rating) {
+        for (Song i : songs) {
+            if (i.getName().matches("(.*)" + song + "(.*)")) i.rate(rating);
         }
     }
 }
