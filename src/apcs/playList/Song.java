@@ -12,7 +12,7 @@ public class Song {
     String songName;
     int plays = 0;
     int rating = 0;
-    long time = 1;
+    long time = 0;
 
     public Song(String name) {
         this.songName = name;
