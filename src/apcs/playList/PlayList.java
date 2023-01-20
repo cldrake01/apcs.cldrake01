@@ -74,12 +74,8 @@ public class PlayList {
     }
 
     public void move(int i, int position) throws IndexOutOfBoundsException{
-        songs.add(position, songs.get(i));
-        if (position < i) {
-            songs.remove(i + 1);
-        } else if (position > i) {
-            songs.remove(i - 1);
-        }
+        Song song = songs.remove(i);
+        songs.add(position, song);
     }
 
 
