@@ -1,7 +1,5 @@
 package apcs.playList;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,11 +13,11 @@ public class PlayList {
         this.name = "New Playlist";
     }
 
-    public PlayList(Song @NotNull ... songs) {
+    public PlayList(Song ... songs) {
         this.songs.addAll(List.of(songs));
     }
 
-    public PlayList(String name, Song @NotNull ... songs) {
+    public PlayList(String name, Song ... songs) {
         this.name = name;
         this.songs.addAll(List.of(songs));
     }
