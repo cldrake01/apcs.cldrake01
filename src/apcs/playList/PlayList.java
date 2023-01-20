@@ -40,8 +40,26 @@ public class PlayList {
                 ;
     }
 
+    public Song getName(int index) {
+        return this.songs.get(index);
+    }
+
+    public String getSong(int index) {
+        return this.songs.get(index).songName;
+    }
+
+    public void add(String... names) {
+        for (String name : names) {
+            this.songs.add(new Song(name, ""));
+        }
+    }
+
     public void add(Song... songs) {
         this.songs.addAll(List.of(songs));
+    }
+
+    public void insert(int index, String name) {
+        this.songs.add(index, new Song(name, ""));
     }
 
     public void move(String song, int position) {
@@ -57,6 +75,16 @@ public class PlayList {
         }
     }
 
+    public void move(int i, int position) throws IndexOutOfBoundsException{
+        songs.add(position, songs.get(i));
+        if (position < i) {
+            songs.remove(i + 1);
+        } else if (position > i) {
+            songs.remove(i - 1);
+        }
+    }
+
+
     public void play() {
         for (Song i : songs) {
             if (!Objects.equals(i.path, "")) i.play();
@@ -69,6 +97,14 @@ public class PlayList {
         }
     }
 
+    public String find(String name) {
+        for (Song song : songs) {
+            if (song.getName().matches("(.*)" + name + "(.*)") && !Objects.equals(song.path, ""))
+                return song.toString();
+        }
+        return "";
+    }
+
     public void play(int song) {
         try {
             if (!Objects.equals(songs.get(song).path, "")) songs.get(song).play();
@@ -79,14 +115,14 @@ public class PlayList {
 
     public void repeat() {
         repeat = !this.repeat;
-        while(this.repeat) {
+        while (this.repeat) {
             play();
         }
     }
 
     public void repeat(String song) {
         repeat = !this.repeat;
-        while(this.repeat) {
+        while (this.repeat) {
             play(song);
         }
     }
@@ -99,5 +135,30 @@ public class PlayList {
         for (Song i : songs) {
             if (i.getName().matches("(.*)" + song + "(.*)")) i.rate(rating);
         }
+    }
+
+    public int size() {
+        return this.songs.size();
+    }
+
+    public void remove(int index) {
+        this.songs.remove(index);
+    }
+
+    public String getMostPlayed() {
+        Song max = new Song("", "");
+        for (Song song : this.songs) {
+            if (song.getPlays() > max.getPlays()) max = song;
+        }
+        return max.getName();
+    }
+
+    public String getFavorite() {
+        Song favorite = new Song("", "");
+        int fav = 0;
+        for (Song song : this.songs) {
+            if (song.getPlays() > fav) favorite = song;
+        }
+        return favorite.getName();
     }
 }

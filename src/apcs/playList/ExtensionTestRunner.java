@@ -10,7 +10,8 @@ public class ExtensionTestRunner {
     {
         PlayList playList = new PlayList("My Playlist",
                 new Song("FYMAM", "/Users/collindrake/Downloads/Free_Your_Mind_About_Music.wav"),
-                new Song("Airborne Grooves", "/Users/collindrake/Downloads/Airborne_Grooves.wav")
+                new Song("Airborne Grooves", "/Users/collindrake/Downloads/Airborne_Grooves.wav"),
+                new Song("Something", "")
         );
 
         playList.rate("Air", 5);
