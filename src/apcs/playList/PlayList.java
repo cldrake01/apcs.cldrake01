@@ -13,11 +13,11 @@ public class PlayList {
         this.name = "New Playlist";
     }
 
-    public PlayList(Song ... songs) {
+    public PlayList(Song... songs) {
         this.songs.addAll(List.of(songs));
     }
 
-    public PlayList(String name, Song ... songs) {
+    public PlayList(String name, Song... songs) {
         this.name = name;
         this.songs.addAll(List.of(songs));
     }
@@ -43,7 +43,12 @@ public class PlayList {
     }
 
     public String getSong(int index) {
-        return this.songs.get(index).songName;
+        try {
+            return this.songs.get(index).songName;
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println("There doesn't appear to be a song located at " + index + ".");
+        }
+        return "";
     }
 
     public void add(String... names) {
@@ -57,7 +62,11 @@ public class PlayList {
     }
 
     public void insert(int index, String name) {
-        this.songs.add(index, new Song(name, ""));
+        try {
+            this.songs.add(index, new Song(name, ""));
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println("Those indecies cannot be accessed within " + this.name + ".");
+        }
     }
 
     public void move(String song, int position) {
@@ -73,11 +82,14 @@ public class PlayList {
         }
     }
 
-    public void move(int i, int position) throws IndexOutOfBoundsException{
-        Song song = songs.remove(i);
-        songs.add(position, song);
+    public void move(int i, int position) {
+        try {
+            Song song = songs.remove(i);
+            songs.add(position, song);
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println("Invalid index provided for move method: " + e.getMessage());
+        }
     }
-
 
     public void play() {
         for (Song i : songs) {
@@ -91,20 +103,21 @@ public class PlayList {
         }
     }
 
-    public String find(String name) {
-        for (Song song : songs) {
-            if (song.getName().matches("(.*)" + name + "(.*)") && !Objects.equals(song.path, ""))
-                return song.toString();
-        }
-        return "";
-    }
 
     public void play(int song) {
         try {
             if (!Objects.equals(songs.get(song).path, "")) songs.get(song).play();
-        } catch (Exception ignored) {
-            System.err.println("That song number can't be found within this playlist.");
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println("Invalid index provided for play method: " + e.getMessage());
         }
+    }
+
+    public String find(String name) {
+        for (Song song : songs) {
+            if (song.getName().matches("(.)" + name + "(.)") && !Objects.equals(song.path, ""))
+                return song.toString();
+        }
+        return "";
     }
 
     public void repeat() {
@@ -122,12 +135,24 @@ public class PlayList {
     }
 
     public void rate(int index, int rating) {
-        songs.get(index).rate(rating);
+        try {
+            songs.get(index).rate(rating);
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println("Invalid index provided for rate method: " + e.getMessage());
+        }
     }
 
     public void rate(String song, int rating) {
+        boolean found = false;
         for (Song i : songs) {
-            if (i.getName().matches("(.*)" + song + "(.*)")) i.rate(rating);
+            if (i.getName().matches("(.*)" + song + "(.*)")) {
+                i.rate(rating);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.err.println("No song with the name " + song + " was found in the playlist.");
         }
     }
 
@@ -136,7 +161,11 @@ public class PlayList {
     }
 
     public void remove(int index) {
-        this.songs.remove(index);
+        try {
+            this.songs.remove(index);
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println("There doesn't appear to be a song located at " + index + ".");
+        }
     }
 
     public String getMostPlayed() {
