@@ -3,11 +3,8 @@ package apcs.gw3;
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.Bug;
 import info.gridworld.actor.Flower;
-import info.gridworld.actor.Rock;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
-
-import java.util.ArrayList;
 
 public class Jumper extends Bug {
     int jumpInterval = 2;
@@ -15,36 +12,28 @@ public class Jumper extends Bug {
 
     @Override
     public void act() {
-        if (canMove())
+        if (canMove()) {
             move();
-        else
-            turn();
-    }
+        } else {
+            Grid<Actor> gr = getGrid();
+            if (gr == null)
+                return;
+            Location loc = getLocation();
+            Location next = loc.getAdjacentLocation(getDirection());
+            Object neighbor = this.canMove();
 
 
-    @Override
-    public void move() {
-        Grid<Actor> gr = getGrid();
-        if (gr == null)
-            return;
-        Location loc = getLocation();
-        Location next = ((Location) loc).getAdjacentLocation(getDirection());
-        ArrayList<Actor> neighbors = gr.getNeighbors(next);
-
-        for (Actor neighbor : neighbors) {
-            if ((neighbor instanceof Rock || neighbor instanceof Bug) && ((Grid<?>) gr).isValid(next)) {
+            if (canMove() && ((Grid<?>) gr).isValid(next)) {
                 // move one
-                this.evaluateDirection();
-            } else if (!(neighbor instanceof Rock) && ((Grid<?>) gr).isValid(next)) {
-                // move 2 forward
                 this.moveTo(next);
-            } else {
-                continue;
+            } else if (!canMove() && ((Grid<?>) gr).isValid(next)) {
+                // move 2 forward
+                this.evaluateDirection();
             }
-        }
 
-        Flower flower = new Flower(getColor());
-        flower.putSelfInGrid(gr, loc);
+            Flower flower = new Flower(getColor());
+            flower.putSelfInGrid(gr, loc);
+        }
     }
 
     public void evaluateDirection() {
