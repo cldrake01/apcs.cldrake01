@@ -41,11 +41,11 @@ public class Jumper extends Bug {
         if (this.getDirection() == Location.NORTH) {
             Location prevLoc = this.getLocation();
             this.removeSelfFromGrid();
-            this.putSelfInGrid(gr, new Location(prevLoc.getRow() + this.jumpInterval, prevLoc.getCol()));
+            this.putSelfInGrid(gr, new Location(prevLoc.getRow() - this.jumpInterval, prevLoc.getCol()));
         } else if (this.getDirection() == Location.NORTHEAST) {
             Location prevLoc = this.getLocation();
             this.removeSelfFromGrid();
-            this.putSelfInGrid(gr, new Location(prevLoc.getRow() + this.jumpInterval, prevLoc.getCol() + this.jumpInterval));
+            this.putSelfInGrid(gr, new Location(prevLoc.getRow() - this.jumpInterval, prevLoc.getCol() + this.jumpInterval));
         } else if (this.getDirection() == Location.EAST) {
             Location prevLoc = this.getLocation();
             this.removeSelfFromGrid();
@@ -53,15 +53,15 @@ public class Jumper extends Bug {
         } else if (this.getDirection() == Location.SOUTHEAST) {
             Location prevLoc = this.getLocation();
             this.removeSelfFromGrid();
-            this.putSelfInGrid(gr, new Location(prevLoc.getRow() - this.jumpInterval, prevLoc.getCol() - this.jumpInterval));
+            this.putSelfInGrid(gr, new Location(prevLoc.getRow() + this.jumpInterval, prevLoc.getCol() - this.jumpInterval));
         } else if (this.getDirection() == Location.SOUTH) {
             Location prevLoc = this.getLocation();
             this.removeSelfFromGrid();
-            this.putSelfInGrid(gr, new Location(prevLoc.getRow() - this.jumpInterval, prevLoc.getCol()));
+            this.putSelfInGrid(gr, new Location(prevLoc.getRow() + this.jumpInterval, prevLoc.getCol()));
         } else if (this.getDirection() == Location.SOUTHWEST) {
             Location prevLoc = this.getLocation();
             this.removeSelfFromGrid();
-            this.putSelfInGrid(gr, new Location(prevLoc.getRow() - this.jumpInterval, prevLoc.getCol() - this.jumpInterval));
+            this.putSelfInGrid(gr, new Location(prevLoc.getRow() + this.jumpInterval, prevLoc.getCol() - this.jumpInterval));
         } else if (this.getDirection() == Location.WEST) {
             Location prevLoc = this.getLocation();
             this.removeSelfFromGrid();
@@ -69,7 +69,7 @@ public class Jumper extends Bug {
         } else if (this.getDirection() == Location.NORTHWEST) {
             Location prevLoc = this.getLocation();
             this.removeSelfFromGrid();
-            this.putSelfInGrid(gr, new Location(prevLoc.getRow() + this.jumpInterval, prevLoc.getCol() - this.jumpInterval));
+            this.putSelfInGrid(gr, new Location(prevLoc.getRow() - this.jumpInterval, prevLoc.getCol() - this.jumpInterval));
         }
     }
 }
