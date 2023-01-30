@@ -16,8 +16,7 @@ public class Jumper extends Bug {
             move();
         } else {
             Grid<Actor> gr = getGrid();
-            if (gr == null)
-                return;
+            if (gr == null) return;
             Location loc = getLocation();
             Location next = loc.getAdjacentLocation(getDirection());
             Object neighbor = this.canMove();

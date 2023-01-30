@@ -14,10 +14,13 @@ public class Runner {
         Jumper ju = new Jumper();
         world.add(new Location(0, 0), ju);
 
-        world.add(new Location(0, 1),new Rock());
-        world.add(new Location(0, -1),new Rock());
-        world.add(new Location(1, 0),new Rock());
-        world.add(new Location(-1, 0),new Rock());
+        ColorBug co = new ColorBug();
+        world.add(new Location(0, 2), co);
+
+        world.add(new Location(0, 1), new Rock());
+        world.add(new Location(0, -1), new Rock());
+        world.add(new Location(1, 0), new Rock());
+        world.add(new Location(-1, 0), new Rock());
         world.show();
     }
 }
