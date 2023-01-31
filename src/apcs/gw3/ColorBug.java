@@ -16,7 +16,7 @@ public class ColorBug extends Bug {
         Grid<Actor> gr = getGrid();
         if (gr == null) return;
         Location loc = getLocation();
-        Location next = loc.getAdjacentLocation(getDirection());
+        Location next = loc.getAdjacentLocation((int) (Math.random() * 359));
         if (gr.isValid(next)) {
             this.changeColor();
             moveTo(next);
