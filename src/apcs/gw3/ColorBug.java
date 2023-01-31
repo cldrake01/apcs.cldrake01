@@ -50,7 +50,11 @@ public class ColorBug extends Bug {
         } else if (neighbors.size() < 5) {
             this.setColor(new Color(0xFF000));
         } else {
-            removeSelfFromGrid();
+            while (!canMove()) {
+                turn();
+                turn();
+                this.changeColor();
+            }
         }
     }
 }
