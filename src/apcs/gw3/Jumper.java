@@ -21,13 +21,14 @@ public class Jumper extends Bug {
             Location next = loc.getAdjacentLocation(getDirection());
             Object neighbor = this.canMove();
 
-
             if (canMove() && ((Grid<?>) gr).isValid(next)) {
                 // move one
                 this.moveTo(next);
             } else if (!canMove() && ((Grid<?>) gr).isValid(next)) {
                 // move 2 forward
                 this.evaluateDirection();
+            } else {
+                this.turn();
             }
 
             Flower flower = new Flower(getColor());
