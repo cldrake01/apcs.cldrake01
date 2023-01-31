@@ -12,6 +12,14 @@ import java.util.ArrayList;
 public class ColorBug extends Bug {
 
     @Override
+    public void act() {
+        if (canMove())
+            move();
+        else
+            this.changeColor();
+    }
+
+    @Override
     public void move() {
         Grid<Actor> gr = getGrid();
         if (gr == null) return;
@@ -39,8 +47,10 @@ public class ColorBug extends Bug {
             this.setColor(new Color(0x0022FF));
         } else if (neighbors.size() == 2) {
             this.setColor(new Color(0x00EAFF));
-        } else if (neighbors.size() <= 3) {
+        } else if (neighbors.size() < 5) {
             this.setColor(new Color(0xFF000));
+        } else {
+            removeSelfFromGrid();
         }
     }
 }
