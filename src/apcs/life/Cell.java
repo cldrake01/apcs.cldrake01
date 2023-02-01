@@ -9,12 +9,12 @@ import info.gridworld.grid.Location;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class ColorBug extends Bug {
+public class Cell extends Bug {
 
     @Override
     public void act() {
         if (canMove()) move();
-        else this.changeColor();
+        else this.lod();
     }
 
     @Override
@@ -24,7 +24,7 @@ public class ColorBug extends Bug {
         Location loc = getLocation();
         Location next = loc.getAdjacentLocation((int) (Math.random() * 359));
         if (gr.isValid(next)) {
-            this.changeColor();
+            this.lod();
             moveTo(next);
         } else {
             removeSelfFromGrid();
@@ -33,25 +33,13 @@ public class ColorBug extends Bug {
         }
     }
 
-    public void changeColor() {
-
+    public void lod() {
         Grid<Actor> gr = getGrid();
-        if (gr == null) return;
-        Location loc = getLocation();
-        Location next = ((Location) loc).getAdjacentLocation(getDirection());
-        ArrayList<Actor> neighbors = (ArrayList<Actor>) ((Grid<?>) gr).getNeighbors(next);
+        ArrayList<Actor> neighbors = (ArrayList<Actor>) ((Grid<?>) gr).getNeighbors(this.getLocation());
 
-        if (neighbors.size() <= 1) {
-            this.setColor(new Color(0x0022FF));
-        } else if (neighbors.size() == 2) {
-            this.setColor(new Color(0x00EAFF));
-        } else if (neighbors.size() < 5) {
-            this.setColor(new Color(0xFF000));
-        } else {
-            while (!canMove()) {
-                turn();
-                turn();
-                this.changeColor();
+        for (Location location : this.getGrid().getEmptyAdjacentLocations(this.getLocation())) {
+            if (this.getGrid().getEmptyAdjacentLocations(this.getLocation()).size() == 3) {
+                this.putSelfInGrid(gr, location);
             }
         }
     }
