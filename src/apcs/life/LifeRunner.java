@@ -1,6 +1,5 @@
 package apcs.life;
 
-import apcs.gw3.Cell;
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.ActorWorld;
 import info.gridworld.grid.Location;
@@ -13,5 +12,6 @@ public class LifeRunner {
 
         // add initial cells (change these as you wish)
         world.add(new Location(0, 0), new Cell());
+        world.show();
     }
 }

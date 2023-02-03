@@ -39,6 +39,10 @@ public class Song {
         this.rating = rating;
     }
 
+    /**
+     * This extension
+     *
+     */
     public void play() {
         this.plays++;
         synchronized (this) {
