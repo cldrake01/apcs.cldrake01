@@ -7,7 +7,7 @@ import info.gridworld.grid.UnboundedGrid;
 
 public class LifeRunner {
     public static void main(String[] args) {
-        UnboundedGrid<Actor> gr = new UnboundedGrid<Actor>();
+        UnboundedGrid<Actor> gr = new UnboundedGrid<>();
         ActorWorld world = new ActorWorld(gr);
 
         // add initial cells (change these as you wish)
