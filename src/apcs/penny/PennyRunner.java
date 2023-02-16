@@ -10,11 +10,9 @@ public class PennyRunner {
 
         // Create the game board
         Square[][] board = new Square[5][5];
-        int score = 1;
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
-                board[row][col] = new Square(score);
-                score++;
+                board[row][col] = new Square(Math.abs(col - row));
             }
         }
 
