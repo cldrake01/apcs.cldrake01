@@ -44,7 +44,7 @@ public class ClimbingClub
     private List<ClimbInfo> climbList;
 
     /** Creates a new ClimbingClub object. */
-    public ClimbingClub()
+    public  ClimbingClub()
     {
         climbList = new ArrayList<ClimbInfo>();
     }
@@ -81,5 +81,4 @@ public class ClimbingClub
         System.out.print(hikerClub);
         System.out.println("The order printed above should be Monadnock, Whiteface, Algonquin, Monadnock");
     }
-
 }
