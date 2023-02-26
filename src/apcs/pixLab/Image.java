@@ -65,12 +65,22 @@ public class Image {
      * removeBlue - modifies an image by removing the blue component form all pixels
      * Postcondition: the image itself is modified
      */
-    public void removeBlue() {
+    public Image removeBlue() {
         for (int r = 0; r < image.length; r++) {
             for (int c = 0; c < image[r].length; c++) {
                 image[r][c] = new Color(image[r][c].getRed(), image[r][c].getGreen(), 0);
             }
         }
+        return this;
+    }
+
+    public Image invert() {
+        for (int r = 0; r < image.length; r++) {
+            for (int c = 0; c < image[r].length; c++) {
+                image[r][c] = new Color(255 - image[r][c].getRed(), 255 - image[r][c].getGreen(), 255 - image[r][c].getBlue());
+            }
+        }
+        return this;
     }
 
     public Image verticalMirror() {
@@ -85,7 +95,7 @@ public class Image {
     public Image horizontalMirror() {
         for (int r =  image.length / 2; r < image.length; r++) {
             for (int c = 0; c < image[r].length; c++) {
-                image[r][c] = image[ image.length - r][c];
+                image[r][c] = image[image.length - r][c];
             }
         }
         return this;
