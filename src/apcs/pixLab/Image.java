@@ -74,6 +74,16 @@ public class Image {
         return this;
     }
 
+    public Image blackWhite() {
+        for (int r = 0; r < image.length; r++) {
+            for (int c = 0; c < image[r].length; c++) {
+                int avg = (image[r][c].getRed() + image[r][c].getGreen() + image[r][c].getBlue()) / 3;
+                image[r][c] = new Color(avg, avg, avg);
+            }
+        }
+        return this;
+    }
+
     public Image invert() {
         for (int r = 0; r < image.length; r++) {
             for (int c = 0; c < image[r].length; c++) {
