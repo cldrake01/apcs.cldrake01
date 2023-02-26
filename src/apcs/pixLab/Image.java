@@ -58,7 +58,7 @@ public class Image {
                 theCopy[r][c] = new Color (image[r][c].getRGB ());
             }
         }
-        return new Image (theCopy);
+        return new Image(theCopy);
     }
 
     /**
