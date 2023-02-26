@@ -5,24 +5,29 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Image {
     /*
      * Instance variables: image - a 2D Array of Colors
      */
     private Color[][] image;
+
     /**
      * Creates a new Image based on an existing 2D array of colors
+     *
      * @param image the array of Colors
      */
-    public Image (Color[][] image) {
+    public Image(Color[][] image) {
         this.image = image;
     }
+
     /**
      * Creates a new Image from an image stored in a file
+     *
      * @param file the name of the file to create the Image from
      */
-    public Image (String file) {
+    public Image(String file) {
         // read image and load into array of Colors
         try {
             BufferedImage img = ImageIO.read(new File(file));
@@ -37,12 +42,14 @@ public class Image {
             System.exit(-1);
         }
     }
+
     /**
      * Displays a COPY of the image into a Java GUI Window
+     *
      * @param title The title to be displayed in the window's title bar
      */
-    public void display (String title) {
-        new ImageGUI (image, title);
+    public void display(String title) {
+        new ImageGUI(image, title);
     }
 
     /**
@@ -51,11 +58,11 @@ public class Image {
      *
      * @return a copy of the image
      */
-    public Image copy () {
+    public Image copy() {
         Color[][] theCopy = new Color[image.length][image[0].length];
-        for (int r=0; r<image.length; r++) {
-            for (int c=0; c<image[0].length; c++) {
-                theCopy[r][c] = new Color (image[r][c].getRGB ());
+        for (int r = 0; r < image.length; r++) {
+            for (int c = 0; c < image[0].length; c++) {
+                theCopy[r][c] = new Color(image[r][c].getRGB());
             }
         }
         return new Image(theCopy);
@@ -65,10 +72,10 @@ public class Image {
      * removeBlue - modifies an image by removing the blue component form all pixels
      * Postcondition: the image itself is modified
      */
-    public Image removeBlue() {
+    public Image removeRed() {
         for (int r = 0; r < image.length; r++) {
             for (int c = 0; c < image[r].length; c++) {
-                image[r][c] = new Color(image[r][c].getRed(), image[r][c].getGreen(), 0);
+                image[r][c] = new Color(0, image[r][c].getGreen(), image[r][c].getBlue());
             }
         }
         return this;
@@ -103,11 +110,55 @@ public class Image {
     }
 
     public Image horizontalMirror() {
-        for (int r =  image.length / 2; r < image.length; r++) {
+        for (int r = image.length / 2; r < image.length; r++) {
             for (int c = 0; c < image[r].length; c++) {
                 image[r][c] = image[image.length - r][c];
             }
         }
+        return this;
+    }
+
+    public Image blur() {
+        Image copy = new Image(new Color[image.length + 2][image[0].length + 2]);
+
+        for (int r = 0; r < copy.image.length; r++) {
+            for (int c = 0; c < copy.image[r].length; c++) {
+                copy.image[r][c] = new Color(0, 0, 0);
+            }
+        }
+
+        for (int r = 1; r < image.length - 1; r++) {
+            System.out.print(r + ", ");
+            for (int c = 1; c < image[r].length - 1; c++) {
+                System.out.println(c);
+
+                Color[] filter = {
+                        image[r - 1][c -1], image[r - 1][c], image[r - 1][c + 1],
+                        image[r][c - 1],image[r][c],image[r][c + 1],
+                        image[r + 1][c - 1],image[r + 1][c],image[r + 1][c + 1]
+                };
+
+                int redSum = 0;
+                int greenSum = 0;
+                int blueSum = 0;
+
+                for (Color pixel : filter) {
+                    redSum += pixel.getRed();
+                    greenSum += pixel.getGreen();
+                    blueSum += pixel.getGreen();
+                }
+
+                System.out.println(Arrays.toString(filter));
+                copy.image[r][c] = new Color(redSum / 9, greenSum / 9, blueSum / 9);
+            }
+        }
+
+        for (int r = 0; r < image.length; r++) {
+            for (int c = 0; c < image[r].length; c++) {
+                image[r][c] = copy.image[r + 1][c + 1];
+            }
+        }
+
         return this;
     }
 }
