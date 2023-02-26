@@ -47,7 +47,6 @@ public class Image {
 
     /**
      * copy - creates and returns a duplicate copy of an image
-     *
      * precondition: the image has at least one row and at least one column
      *
      * @return a copy of the image
@@ -64,25 +63,32 @@ public class Image {
 
     /**
      * removeBlue - modifies an image by removing the blue component form all pixels
-     *
      * Postcondition: the image itself is modified
      */
     public void removeBlue() {
-
-        // loop through all pixels
         for (int r = 0; r < image.length; r++) {
             for (int c = 0; c < image[r].length; c++) {
-
-                // get component parts of pixel's color
-                Color pixel = image[r][c];
-                int red = pixel.getRed ();
-                int green = pixel.getGreen ();
-                int blue = pixel.getBlue ();
-
-                // construct a new pixel with the same red and green but no blue
-                image[r][c] = new Color (red, green, 0);
+                image[r][c] = new Color(image[r][c].getRed(), image[r][c].getGreen(), 0);
             }
         }
+    }
+
+    public Image verticalMirror() {
+        for (int r = 0; r < image.length; r++) {
+            for (int c = image[r].length / 2; c < image[r].length; c++) {
+                image[r][c] = image[r][image[r].length - c];
+            }
+        }
+        return this;
+    }
+
+    public Image horizontalMirror() {
+        for (int r =  image.length / 2; r < image.length; r++) {
+            for (int c = 0; c < image[r].length; c++) {
+                image[r][c] = image[ image.length - r][c];
+            }
+        }
+        return this;
     }
 }
 
