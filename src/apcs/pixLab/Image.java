@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Image {
     /*
@@ -111,54 +110,53 @@ public class Image {
 
     public Image horizontalMirror() {
         for (int r = image.length / 2; r < image.length; r++) {
-            for (int c = 0; c < image[r].length; c++) {
-                image[r][c] = image[image.length - r][c];
-            }
+            System.arraycopy(image[image.length - r], 0, image[r], 0, image[r].length);
         }
         return this;
     }
 
     public Image blur() {
-        Image copy = new Image(new Color[image.length + 2][image[0].length + 2]);
+        int height = image.length;
+        int width = image[0].length;
+        Color[][] blurredImage = new Color[height][width];
 
-        for (int r = 0; r < copy.image.length; r++) {
-            for (int c = 0; c < copy.image[r].length; c++) {
-                copy.image[r][c] = new Color(0, 0, 0);
-            }
-        }
-
-        for (int r = 1; r < image.length - 1; r++) {
-            System.out.print(r + ", ");
-            for (int c = 1; c < image[r].length - 1; c++) {
-                System.out.println(c);
-
-                Color[] filter = {
-                        image[r - 1][c -1], image[r - 1][c], image[r - 1][c + 1],
-                        image[r][c - 1],image[r][c],image[r][c + 1],
-                        image[r + 1][c - 1],image[r + 1][c],image[r + 1][c + 1]
-                };
-
+        // loop over every pixel in the image
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
                 int redSum = 0;
                 int greenSum = 0;
                 int blueSum = 0;
+                int numNeighbors = 0;
 
-                for (Color pixel : filter) {
-                    redSum += pixel.getRed();
-                    greenSum += pixel.getGreen();
-                    blueSum += pixel.getGreen();
+                // loop over every neighbor around the pixel
+                for (int i = -1; i <= 1; i++) {
+                    for (int j = -1; j <= 1; j++) {
+                        int x = r + i;
+                        int y = c + j;
+
+                        // check if the neighbor is within bounds
+                        if (x >= 0 && x < height && y >= 0 && y < width) {
+                            redSum += image[x][y].getRed();
+                            greenSum += image[x][y].getGreen();
+                            blueSum += image[x][y].getBlue();
+                            numNeighbors++;
+                        }
+                    }
                 }
 
-                System.out.println(Arrays.toString(filter));
-                copy.image[r][c] = new Color(redSum / 9, greenSum / 9, blueSum / 9);
+                // calculate the average color value
+                int avgRed = redSum / numNeighbors;
+                int avgGreen = greenSum / numNeighbors;
+                int avgBlue = blueSum / numNeighbors;
+
+                // set the pixel color in the blurred image
+                blurredImage[r][c] = new Color(avgRed, avgGreen, avgBlue);
             }
         }
 
-        for (int r = 0; r < image.length; r++) {
-            for (int c = 0; c < image[r].length; c++) {
-                image[r][c] = copy.image[r + 1][c + 1];
-            }
-        }
+        this.image = new Image(blurredImage).image;
 
+        // create a new Image object from the blurred image array
         return this;
     }
 }
