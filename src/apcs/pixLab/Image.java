@@ -1,5 +1,7 @@
 package apcs.pixLab;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -11,6 +13,14 @@ public class Image {
      * Instance variables: image - a 2D Array of Colors
      */
     private Color[][] image;
+
+    public Color getPixel(int r, int c) {
+        try {
+            return this.image[r][c];
+        } catch (ArrayIndexOutOfBoundsException AI) {
+            return new Color(0, 0, 0);
+        }
+    }
 
     /**
      * Creates a new Image based on an existing 2D array of colors
@@ -157,6 +167,41 @@ public class Image {
         this.image = new Image(blurredImage).image;
 
         // create a new Image object from the blurred image array
+        return this;
+    }
+
+    public Image blend(String path) {
+        Image param = new Image(path);
+        int height = Math.max(image.length, param.image.length);
+        int width = Math.max(image[0].length, param.image[0].length);
+        Image normalized = new Image(new Color[height][width]);
+
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                normalized.image[r][c] = new Color((this.getPixel(r,c).getRed() + param.getPixel(r,c).getRed()) / 2, (this.getPixel(r,c).getGreen() + param.getPixel(r,c).getGreen()) / 2, (this.getPixel(r,c).getBlue() + param.getPixel(r,c).getBlue()) / 2);
+            }
+        }
+
+        return normalized;
+    }
+
+    public Image blend(String @NotNull ... paths) {
+        Image result = new Image(this.image);
+
+        for (String path : paths) {
+            result = result.blend(path);
+        }
+
+        return result;
+    }
+
+    public Image contrast(double amount) {
+        for (int r = 0; r < this.image.length; r++) {
+            for (int c = 0; c < this.image[0].length; c++) {
+                this.image[r][c] = new Color((int) Math.min(this.image[r][c].getRed() * amount, 255), (int) Math.min(this.image[r][c].getGreen() * amount, 255), (int) Math.min(this.image[r][c].getBlue() * amount, 255));
+            }
+        }
+
         return this;
     }
 }
