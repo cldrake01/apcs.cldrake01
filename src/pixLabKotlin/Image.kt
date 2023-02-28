@@ -149,9 +149,12 @@ class Image(private var image: Array<Array<Color>>) {
                     }
                 }
 
-                val avgRed = (image[r][c].red * numNeighbors - (redSum - image[r][c].red)).coerceAtMost(255).coerceAtLeast(0)
-                val avgGreen = (image[r][c].green * numNeighbors - (greenSum - image[r][c].green)).coerceAtMost(255).coerceAtLeast(0)
-                val avgBlue = (image[r][c].blue * numNeighbors - (blueSum - image[r][c].blue)).coerceAtMost(255).coerceAtLeast(0)
+                val avgRed =
+                    (image[r][c].red * numNeighbors - (redSum - image[r][c].red)).coerceAtMost(255).coerceAtLeast(0)
+                val avgGreen = (image[r][c].green * numNeighbors - (greenSum - image[r][c].green)).coerceAtMost(255)
+                    .coerceAtLeast(0)
+                val avgBlue =
+                    (image[r][c].blue * numNeighbors - (blueSum - image[r][c].blue)).coerceAtMost(255).coerceAtLeast(0)
 
                 blurredImage[r][c] = Color(avgRed, avgGreen, avgBlue)
             }
@@ -196,7 +199,11 @@ class Image(private var image: Array<Array<Color>>) {
     fun contrast(amount: Double): Image {
         for (r: Int in this.image.indices) {
             for (c: Int in this.image[0].indices) {
-                this.image[r][c] = Color(Math.min((this.image[r][c].red * amount).toInt(), 255), Math.min((this.image[r][c].green * amount).toInt(), 255), Math.min((this.image[r][c].blue * amount).toInt(), 255))
+                this.image[r][c] = Color(
+                    Math.min((this.image[r][c].red * amount).toInt(), 255),
+                    Math.min((this.image[r][c].green * amount).toInt(), 255),
+                    Math.min((this.image[r][c].blue * amount).toInt(), 255)
+                )
             }
         }
 
@@ -213,7 +220,17 @@ class Image(private var image: Array<Array<Color>>) {
         for (r: Int in 0 until height) {
             decC = width
             for (c: Int in 0 until width) {
-                normalized.image[r][c] = Color(((getPixel(r, c).red.toDouble() * (decC.toDouble() / width.toDouble()) + param.getPixel(r, c).red.toDouble() * (c.toDouble() / width.toDouble())) / 2).toInt(), ((getPixel(r, c).green.toDouble() * (decC.toDouble() / width.toDouble()) + param.getPixel(r, c).green.toDouble() * (c.toDouble() / width.toDouble())) / 2).toInt(), ((getPixel(r, c).blue.toDouble() * (decC.toDouble() / width.toDouble()) + param.getPixel(r, c).blue.toDouble() * (c.toDouble() / width.toDouble())) / 2).toInt())
+                normalized.image[r][c] = Color(
+                    ((getPixel(r, c).red.toDouble() * (decC.toDouble() / width.toDouble()) + param.getPixel(
+                        r, c
+                    ).red.toDouble() * (c.toDouble() / width.toDouble())) / 2).toInt(),
+                    ((getPixel(r, c).green.toDouble() * (decC.toDouble() / width.toDouble()) + param.getPixel(
+                        r, c
+                    ).green.toDouble() * (c.toDouble() / width.toDouble())) / 2).toInt(),
+                    ((getPixel(r, c).blue.toDouble() * (decC.toDouble() / width.toDouble()) + param.getPixel(
+                        r, c
+                    ).blue.toDouble() * (c.toDouble() / width.toDouble())) / 2).toInt()
+                )
                 decC--
             }
         }
