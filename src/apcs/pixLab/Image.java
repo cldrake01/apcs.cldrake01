@@ -260,5 +260,16 @@ public class Image {
 
         return this;
     }
+
+    public Image gradientBlend(String @NotNull ... paths) {
+        Image result = new Image(this.image);
+
+        for (String path : paths) {
+            result = result.gradientBlend(path);
+            this.image = result.image;
+        }
+
+        return this;
+    }
 }
 
