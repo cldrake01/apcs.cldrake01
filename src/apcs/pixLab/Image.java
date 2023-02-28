@@ -177,7 +177,9 @@ public class Image {
             }
         }
 
-        return normalized;
+        this.image = normalized.image;
+
+        return this;
     }
 
     public Image blend(String @NotNull ... paths) {
@@ -185,9 +187,10 @@ public class Image {
 
         for (String path : paths) {
             result = result.blend(path);
+            this.image = result.image;
         }
 
-        return result;
+        return this;
     }
 
     public Image contrast(double amount) {
