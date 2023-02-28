@@ -9,7 +9,7 @@ public class PixRunner {
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").horizontalMirror().display("horizontalMirror()");
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").blur().display("blur()");
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").blend("/Users/collindrake/Downloads/desmos-graph.png").display("merge()");
-        new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").blend("/Users/collindrake/Downloads/desmos-graph.png", "/Users/collindrake/Downloads/li-zhang-xRRQlR8Qu-Y-unsplash.jpg").display("merge(), with several images");
+        new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").blend("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/repository-open-graph-template.png", "/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/li-zhang-xRRQlR8Qu-Y-unsplash.jpg").display("blend(), with several images");
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").contrast(2).display("Increase Contrast");
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").contrast(0.5).display("Reduce Contrast");
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").display("Reference Image");
