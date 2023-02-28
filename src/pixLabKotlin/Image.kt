@@ -2,7 +2,6 @@ package pixLabKotlin
 
 import apcs.pixLab.ImageGUI
 import java.awt.Color
-import java.awt.color.ColorSpace
 import java.io.File
 import javax.imageio.ImageIO
 import kotlin.system.exitProcess
