@@ -130,7 +130,6 @@ public class Image {
         int width = image[0].length;
         Color[][] blurredImage = new Color[height][width];
 
-        // loop over every pixel in the image
         for (int r = 0; r < height; r++) {
             for (int c = 0; c < width; c++) {
                 int redSum = 0;
@@ -138,13 +137,11 @@ public class Image {
                 int blueSum = 0;
                 int numNeighbors = 0;
 
-                // loop over every neighbor around the pixel
                 for (int i = -1; i <= 1; i++) {
                     for (int j = -1; j <= 1; j++) {
                         int x = r + i;
                         int y = c + j;
 
-                        // check if the neighbor is within bounds
                         if (x >= 0 && x < height && y >= 0 && y < width) {
                             redSum += image[x][y].getRed();
                             greenSum += image[x][y].getGreen();
@@ -154,7 +151,6 @@ public class Image {
                     }
                 }
 
-                // calculate the average color value
                 int avgRed = redSum / numNeighbors;
                 int avgGreen = greenSum / numNeighbors;
                 int avgBlue = blueSum / numNeighbors;
@@ -166,7 +162,6 @@ public class Image {
 
         this.image = new Image(blurredImage).image;
 
-        // create a new Image object from the blurred image array
         return this;
     }
 
@@ -178,7 +173,7 @@ public class Image {
 
         for (int r = 0; r < height; r++) {
             for (int c = 0; c < width; c++) {
-                normalized.image[r][c] = new Color((this.getPixel(r,c).getRed() + param.getPixel(r,c).getRed()) / 2, (this.getPixel(r,c).getGreen() + param.getPixel(r,c).getGreen()) / 2, (this.getPixel(r,c).getBlue() + param.getPixel(r,c).getBlue()) / 2);
+                normalized.image[r][c] = new Color((this.getPixel(r, c).getRed() + param.getPixel(r, c).getRed()) / 2, (this.getPixel(r, c).getGreen() + param.getPixel(r, c).getGreen()) / 2, (this.getPixel(r, c).getBlue() + param.getPixel(r, c).getBlue()) / 2);
             }
         }
 
