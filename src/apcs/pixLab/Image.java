@@ -240,5 +240,25 @@ public class Image {
 
         return this;
     }
+
+    public Image gradientBlend(String path) {
+        Image param = new Image(path);
+        int height = Math.max(image.length, param.image.length);
+        int width = Math.max(image[0].length, param.image[0].length);
+        Image normalized = new Image(new Color[height][width]);
+        int decC;
+
+        for (int r = 0; r < height; r++) {
+            decC = width;
+            for (int c = 0; c < width; c++) {
+                normalized.image[r][c] = new Color((int) ((this.getPixel(r, c).getRed() * ((double) decC / width) + param.getPixel(r, c).getRed() * ((double) c / width)) / 2), (int) ((this.getPixel(r, c).getGreen() * ((double) decC / width) + param.getPixel(r, c).getGreen() * ((double) c / width)) / 2), (int) ((this.getPixel(r, c).getBlue() * ((double) decC / width) + param.getPixel(r, c).getBlue() * ((double) c / width)) / 2));
+                decC--;
+            }
+        }
+
+        this.image = normalized.image;
+
+        return this;
+    }
 }
 
