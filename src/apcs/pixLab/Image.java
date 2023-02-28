@@ -193,7 +193,6 @@ public class Image {
                 int avgRed = Math.max(Math.min(image[r][c].getRed() * numNeighbors - (redSum - image[r][c].getRed()), 255), 0);
                 int avgGreen = Math.max(Math.min(image[r][c].getGreen() * numNeighbors - (greenSum - image[r][c].getGreen()), 255), 0);
                 int avgBlue = Math.max(Math.min(image[r][c].getBlue() * numNeighbors - (blueSum - image[r][c].getBlue()), 255), 0);
-                System.out.println("Red: " + avgRed + " Green: " + avgGreen + " Blue: " + avgBlue);
 
                 blurredImage[r][c] = new Color(avgRed, avgGreen, avgBlue);
             }
