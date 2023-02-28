@@ -14,7 +14,6 @@ public class PixRunner {
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").contrast(2).display("Increase Contrast");
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").contrast(0.5).display("Reduce Contrast");
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").gradientBlend("/Users/collindrake/Downloads/desmos-graph.png").display("gradientBlend()");
-        new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").gradientBlend("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/repository-open-graph-template.png", "/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/benson.jpg").display("gradientBlend(), with several images");
         new Image("/Users/collindrake/IdeaProjects/apcs-cldrake01/src/apcs/pixLab/p2p.jpg").display("Reference Image");
     }
 }
