@@ -155,7 +155,46 @@ public class Image {
                 int avgGreen = greenSum / numNeighbors;
                 int avgBlue = blueSum / numNeighbors;
 
-                // set the pixel color in the blurred image
+                blurredImage[r][c] = new Color(avgRed, avgGreen, avgBlue);
+            }
+        }
+
+        this.image = new Image(blurredImage).image;
+
+        return this;
+    }
+
+    public Image sharpen() {
+        int height = image.length;
+        int width = image[0].length;
+        Color[][] blurredImage = new Color[height][width];
+
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                int redSum = 0;
+                int greenSum = 0;
+                int blueSum = 0;
+                int numNeighbors = 0;
+
+                for (int i = -1; i <= 1; i++) {
+                    for (int j = -1; j <= 1; j++) {
+                        int x = r + i;
+                        int y = c + j;
+
+                        if (x >= 0 && x < height && y >= 0 && y < width) {
+                            redSum += image[x][y].getRed();
+                            greenSum += image[x][y].getGreen();
+                            blueSum += image[x][y].getBlue();
+                            numNeighbors++;
+                        }
+                    }
+                }
+
+                int avgRed = Math.max(Math.min(image[r][c].getRed() * numNeighbors - (redSum - image[r][c].getRed()), 255), 0);
+                int avgGreen = Math.max(Math.min(image[r][c].getGreen() * numNeighbors - (greenSum - image[r][c].getGreen()), 255), 0);
+                int avgBlue = Math.max(Math.min(image[r][c].getBlue() * numNeighbors - (blueSum - image[r][c].getBlue()), 255), 0);
+                System.out.println("Red: " + avgRed + " Green: " + avgGreen + " Blue: " + avgBlue);
+
                 blurredImage[r][c] = new Color(avgRed, avgGreen, avgBlue);
             }
         }
