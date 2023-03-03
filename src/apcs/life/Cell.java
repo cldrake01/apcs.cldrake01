@@ -7,6 +7,7 @@ import java.util.*;
 
 
 public class Cell extends Actor {
+    public static int cellCount = 0;
 
     @Override
     public void act() {
@@ -18,6 +19,7 @@ public class Cell extends Actor {
         for (Location surrounding : getGrid().getEmptyAdjacentLocations(this.getLocation())) {
             if (getGrid().getOccupiedAdjacentLocations(surrounding).size() == 3) {
                 getGrid().put(surrounding, new Cell());
+                LifeRunner.count++;
             }
         }
         phaseTwo();
@@ -30,6 +32,7 @@ public class Cell extends Actor {
             allCells.sort((Comparator<? super Location>) cell);
             if (getGrid().getOccupiedAdjacentLocations(cell).size() < 2 || getGrid().getOccupiedAdjacentLocations(cell).size() >= 4) {
                 getGrid().remove(cell);
+                LifeRunner.count--;
             }
         }
     }

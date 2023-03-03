@@ -6,6 +6,9 @@ import info.gridworld.grid.Location;
 import info.gridworld.grid.UnboundedGrid;
 
 public class LifeRunner {
+
+    static int count = 0;
+
     public static void main(String[] args) {
         UnboundedGrid<Actor> gr = new UnboundedGrid<>();
         ActorWorld world = new ActorWorld(gr);
@@ -13,5 +16,6 @@ public class LifeRunner {
         // add initial cells (change these as you wish)
         world.add(new Location(0, 0), new Cell());
         world.show();
+        world.setMessage(String.valueOf(count));
     }
 }

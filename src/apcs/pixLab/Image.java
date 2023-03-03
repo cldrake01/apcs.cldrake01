@@ -1,7 +1,5 @@
 package apcs.pixLab;
 
-import org.jetbrains.annotations.NotNull;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -220,7 +218,7 @@ public class Image {
         return this;
     }
 
-    public Image blend(String @NotNull ... paths) {
+    public Image blend(String ... paths) {
         Image result = new Image(this.image);
 
         for (String path : paths) {
@@ -261,7 +259,7 @@ public class Image {
         return this;
     }
 
-    public Image gradientBlend(String @NotNull ... paths) {
+    public Image gradientBlend(String ... paths) {
         Image result = new Image(this.image);
 
         for (String path : paths) {
