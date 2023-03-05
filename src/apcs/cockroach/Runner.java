@@ -1,15 +1,19 @@
 package apcs.cockroach;
 
 import info.gridworld.actor.Actor;
+import info.gridworld.actor.Rock;
 import info.gridworld.grid.BoundedGrid;
+import info.gridworld.grid.Location;
 
 public class Runner {
     public static void main(String[] args) {
-        CockroachWorld world = new CockroachWorld(new BoundedGrid<Actor>(20, 40));
+        CockroachWolrd wolrd = new CockroachWolrd(new BoundedGrid<Actor>(CockroachWolrd.rows, CockroachWolrd.columns));
 
-        CockroachWolrd wolrd = new CockroachWolrd();
-
-        wolrd.add(new Cockroach());
+        // Adds 10 rocks to the grid in random locations.
+        for (int i = 0; i < 10; i++) {
+            wolrd.add(new Location((int) (Math.random() * CockroachWolrd.rows), (int) (Math.random() * CockroachWolrd.columns)), new Rock());
+            if (i % 2 == 0) wolrd.add(new Cockroach());
+        }
 
         wolrd.show();
     }
