@@ -7,6 +7,10 @@ import java.awt.*;
 
 public class Cockroach extends Bug {
 
+    public Cockroach() {
+        this.setColor(Color.black);
+    }
+
     public Cockroach(Location location, int direction) {
         this.setColor(Color.ORANGE);
         this.setDirection(direction);
@@ -21,15 +25,23 @@ public class Cockroach extends Bug {
             hide();
         }
 
-        if (this.canMove() && this.getLocation().getAdjacentLocation(this.getDirection()) != null) {
+        // Moves cockroach in the direction of Cockroach.hidingPlace, but if it is unable to move it is randomly rotated in 45 degree intervals of 360.
+        if (this.canMove()) {
             this.move();
         } else {
-            this.turn();
-            this.move();
+            int trueRand = (int) Math.round(Math.random() * 8);
+            int rand = (45 * (trueRand));
+            this.setDirection(rand);
+            if (this.canMove()) {;
+                if (this.canMove()) this.move();
+            } else {
+                Math.min(this.getLocation().getDirectionToward(CockroachWolrd.hidingPlace) - Location.HALF_LEFT,
+                        this.getLocation().getDirectionToward(CockroachWolrd.hidingPlace) - Location.HALF_RIGHT);
+            }
         }
     }
 
-    // When lightsOff = false, the cockroaches should hide by moving towards the top right corner.
+    // When lightsOff = false, the cockroaches should hide by moving towards CockroachWorld.hidingPlace.
     public void hide() {
         this.setColor(Color.RED);
         this.setDirection(this.getLocation().getDirectionToward(CockroachWolrd.hidingPlace));
@@ -39,9 +51,5 @@ public class Cockroach extends Bug {
     public void scatter() {
         this.setColor(Color.ORANGE);
         this.setDirection((int) (Math.random() * 360));
-    }
-
-    public Cockroach() {
-        this.setColor(Color.black);
     }
 }
