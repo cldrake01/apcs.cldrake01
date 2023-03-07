@@ -7,6 +7,8 @@ import java.awt.*;
 
 public class Cockroach extends Bug {
 
+    int cookiesCollected = 0;
+
     public Cockroach() {
         this.setColor(Color.black);
     }
@@ -19,6 +21,11 @@ public class Cockroach extends Bug {
 
     @Override
     public void act() {
+        if (this.cookiesCollected > CockroachWolrd.maxCookies) {
+            CockroachWolrd.maxCookies = this.cookiesCollected;
+            CockroachWolrd.winner = this;
+        }
+
         if (CockroachWolrd.lightsOff) {
             scatter();
         } else {
@@ -50,6 +57,17 @@ public class Cockroach extends Bug {
     // When lightsOff = true, the cockroaches should scatter by moving in a random direction.
     public void scatter() {
         this.setColor(Color.ORANGE);
-        this.setDirection((int) (Math.random() * 360));
+        for (Location location : this.getGrid().getOccupiedAdjacentLocations(this.getLocation())) {
+            if (this.getGrid().get(location) instanceof Cookie) {
+                Cookie cookie = (Cookie) this.getGrid().get(location);
+                this.setDirection(this.getLocation().getDirectionToward(location));
+                cookie.collected();
+                this.cookiesCollected++;
+            } else {
+                int trueRand = (int) Math.round(Math.random() * 8);
+                int rand = (45 * (trueRand));
+                this.setDirection(rand);
+            }
+        }
     }
 }

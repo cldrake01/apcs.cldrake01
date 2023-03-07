@@ -15,6 +15,11 @@ public class Runner {
             if (i % 2 == 0) wolrd.add(new Cockroach());
         }
 
+        System.out.println("Press SPACE to toggle lightsOff");
+
         wolrd.show();
+
+        wolrd.keyPressed();
+
     }
 }

@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class CockroachWolrd extends ActorWorld {
 
+    public static Cockroach winner;
+    public static int maxCookies = 0;
     public static int rows = 30;
     public static int columns = 30;
 
@@ -34,15 +36,20 @@ public class CockroachWolrd extends ActorWorld {
     }
 
     public void keyPressed() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner reader = new Scanner(System.in);
 
         System.out.println("Enter a command: ");
+        this.setMessage("Enter a command: ");
 
-        String key = scanner.nextLine();
+        String key = reader.nextLine();
         if (key.equals(" ")) CockroachWolrd.lightsOff = !CockroachWolrd.lightsOff;
         if (key.equals("a")) this.add(new Cockroach());
         if (key.equals("q")) System.exit(0);
+
         System.out.println("Key: " + key + " LightsOff " + CockroachWolrd.lightsOff);
+        this.setMessage("Key: " + key + " LightsOff " + CockroachWolrd.lightsOff);
+
+        this.keyPressed();
         this.show();
     }
 }
