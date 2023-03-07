@@ -105,5 +105,7 @@ public class CockroachWolrd extends ActorWorld {
         if (key.equals("q")) System.exit(0);
 
         this.out("Key: " + key + " LightsOff " + CockroachWolrd.lightsOff);
+
+        this.keyPressed();
     }
 }
