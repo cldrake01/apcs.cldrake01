@@ -13,6 +13,10 @@ public class Cockroach extends Bug {
         this.setColor(Color.black);
     }
 
+    public Cockroach(Color color) {
+        this.setColor(color);
+    }
+
     public Cockroach(Location location, int direction) {
         this.setColor(Color.ORANGE);
         this.setDirection(direction);
@@ -39,11 +43,11 @@ public class Cockroach extends Bug {
             int trueRand = (int) Math.round(Math.random() * 8);
             int rand = (45 * (trueRand));
             this.setDirection(rand);
-            if (this.canMove()) {;
+            if (this.canMove()) {
+                ;
                 if (this.canMove()) this.move();
             } else {
-                Math.min(this.getLocation().getDirectionToward(CockroachWolrd.hidingPlace) - Location.HALF_LEFT,
-                        this.getLocation().getDirectionToward(CockroachWolrd.hidingPlace) - Location.HALF_RIGHT);
+                Math.min(this.getLocation().getDirectionToward(CockroachWolrd.hidingPlace) - Location.HALF_LEFT, this.getLocation().getDirectionToward(CockroachWolrd.hidingPlace) - Location.HALF_RIGHT);
             }
         }
     }

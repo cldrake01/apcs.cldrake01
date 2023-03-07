@@ -12,6 +12,7 @@ public class Runner {
         // Adds 10 rocks to the grid in random locations.
         for (int i = 0; i < 10; i++) {
             wolrd.add(new Location((int) (Math.random() * CockroachWolrd.rows), (int) (Math.random() * CockroachWolrd.columns)), new Rock());
+            wolrd.add(new Location((int) (Math.random() * CockroachWolrd.rows), (int) (Math.random() * CockroachWolrd.columns)), new Cookie());
             if (i % 2 == 0) wolrd.add(new Cockroach());
         }
 
@@ -20,6 +21,5 @@ public class Runner {
         wolrd.show();
 
         wolrd.keyPressed();
-
     }
 }

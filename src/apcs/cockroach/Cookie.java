@@ -8,7 +8,8 @@ public class Cookie extends Rock {
     public Cookie() {
         this.setColor(Color.PINK);
     }
-    public void collected () {
+
+    public void collected() {
         this.removeSelfFromGrid();
     }
 }
