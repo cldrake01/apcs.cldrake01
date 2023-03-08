@@ -18,8 +18,10 @@ public class CockroachWolrd extends ActorWorld {
     private int count = 0;
 
     public static ArrayList<Cookie> cookies = new ArrayList<Cookie>();
-    public static Cockroach winner = new Cockroach(Color.CYAN);
+
+    public static Cockroach winner = null;
     public static int maxCookies = 0;
+
     public static int rows = 20;
     public static int columns = 20;
 
@@ -109,7 +111,7 @@ public class CockroachWolrd extends ActorWorld {
     }
 
     public String getWinner() {
-        return CockroachWolrd.winner.getColor() == Color.CYAN ? "No one wins." : "The winner is at space " + CockroachWolrd.winner.getLocation() + ", with " + CockroachWolrd.maxCookies + " cookies!";
+        return CockroachWolrd.winner == null ? "No one wins." : "The winner is at space " + CockroachWolrd.winner.getLocation() + ", with " + CockroachWolrd.maxCookies + " cookies!";
     }
 
     @Override
