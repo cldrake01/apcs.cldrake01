@@ -112,18 +112,17 @@ public class CockroachWolrd extends ActorWorld {
         return CockroachWolrd.winner.getColor() == Color.CYAN ? "No one wins." : "The winner is at space " + CockroachWolrd.winner.getLocation() + ", with " + CockroachWolrd.maxCookies + " cookies!";
     }
 
-    public void keyPressed() {
-        Scanner reader = new Scanner(System.in);
-
+    @Override
+    public boolean keyPressed(String description, Location loc) {
         this.out("Enter a command, press (q) to quit: ");
 
-        String key = reader.nextLine();
-        if (key.equalsIgnoreCase(" ")) CockroachWolrd.lightsOff = !CockroachWolrd.lightsOff;
-        if (key.equalsIgnoreCase("a")) this.add(new Cockroach());
-        if (key.equalsIgnoreCase("q")) System.exit(0);
+        // Use L to toggle lightsOff
+        if (description.equals("L")) CockroachWolrd.lightsOff = !CockroachWolrd.lightsOff;
+        if (description.equals("A")) this.add(new Cockroach());
+        if (description.equals("Q")) System.exit(0);
 
-        this.out("Key: " + key + " LightsOff " + CockroachWolrd.lightsOff);
+        this.out("Key: " + description + " LightsOff " + CockroachWolrd.lightsOff);
 
-        this.keyPressed();
+        return false;
     }
 }
