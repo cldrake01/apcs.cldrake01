@@ -7,7 +7,6 @@ import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -71,7 +70,7 @@ public class CockroachWolrd extends ActorWorld {
     @Override
     public void step() {
         Grid<Actor> gr = this.getGrid();
-        ArrayList<Actor> actors = new ArrayList();
+        ArrayList<Actor> actors = new ArrayList<>();
         Iterator i$ = gr.getOccupiedLocations().iterator();
 
         while (i$.hasNext()) {
