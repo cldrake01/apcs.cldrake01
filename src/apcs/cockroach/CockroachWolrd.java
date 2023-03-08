@@ -21,8 +21,8 @@ public class CockroachWolrd extends ActorWorld {
     public static Cockroach winner = null;
     public static int maxCookies = 0;
 
-    public static int rows = 20;
-    public static int columns = 20;
+    public static int rows = 60;
+    public static int columns = 100;
 
     public static Location hidingPlace = new Location(rows, columns);
 
