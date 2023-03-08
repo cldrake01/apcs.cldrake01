@@ -2,6 +2,7 @@ package apcs.cockroach;
 
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.ActorWorld;
+import info.gridworld.actor.Rock;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
@@ -16,10 +17,11 @@ public class CockroachWolrd extends ActorWorld {
     private int duration = 0;
     private int count = 0;
 
+    public static ArrayList<Cookie> cookies = new ArrayList<Cookie>();
     public static Cockroach winner = new Cockroach(Color.CYAN);
     public static int maxCookies = 0;
-    public static int rows = 30;
-    public static int columns = 30;
+    public static int rows = 20;
+    public static int columns = 20;
 
     public static Location hidingPlace = new Location(rows, columns);
 
@@ -35,12 +37,28 @@ public class CockroachWolrd extends ActorWorld {
         this.duration = scanner.nextInt();
 
         this.out(duration + " steps it is!");
+
+        this.init(20);
     }
 
     public CockroachWolrd(BoundedGrid<Actor> grid, int rowsParam, int columnsParam) {
         super(grid);
         CockroachWolrd.rows = rowsParam;
         CockroachWolrd.columns = columnsParam;
+
+        this.init(20);
+    }
+
+    public void init(int num) {
+        for (int i = 0; i < num; i++) {
+            this.add(new Rock());
+
+            Cookie cookie = new Cookie();
+            this.add(cookie);
+            CockroachWolrd.cookies.add(cookie);
+
+            if (i % 2 == 0) this.add(new Cockroach());
+        }
     }
 
     public void out(String message) {
@@ -54,15 +72,15 @@ public class CockroachWolrd extends ActorWorld {
         ArrayList<Actor> actors = new ArrayList();
         Iterator i$ = gr.getOccupiedLocations().iterator();
 
-        while(i$.hasNext()) {
-            Location loc = (Location)i$.next();
+        while (i$.hasNext()) {
+            Location loc = (Location) i$.next();
             actors.add(gr.get(loc));
         }
 
         i$ = actors.iterator();
 
-        while(i$.hasNext()) {
-            Actor a = (Actor)i$.next();
+        while (i$.hasNext()) {
+            Actor a = (Actor) i$.next();
             if (a.getGrid() == gr) {
                 a.act();
             }

@@ -11,5 +11,6 @@ public class Cookie extends Rock {
 
     public void collected() {
         this.removeSelfFromGrid();
+        CockroachWolrd.cookies.remove(this);
     }
 }

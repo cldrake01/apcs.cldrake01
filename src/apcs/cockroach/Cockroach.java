@@ -1,6 +1,9 @@
 package apcs.cockroach;
 
+import info.gridworld.actor.Actor;
 import info.gridworld.actor.Bug;
+import info.gridworld.actor.Flower;
+import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
 import java.awt.*;
@@ -21,6 +24,20 @@ public class Cockroach extends Bug {
         this.setColor(Color.ORANGE);
         this.setDirection(direction);
         this.putSelfInGrid(getGrid(), location);
+    }
+
+    @Override
+    public void move() {
+        Grid<Actor> gr = this.getGrid();
+        if (gr != null) {
+            Location loc = this.getLocation();
+            Location next = loc.getAdjacentLocation(this.getDirection());
+            if (gr.isValid(next)) {
+                this.moveTo(next);
+            } else {
+                this.removeSelfFromGrid();
+            }
+        }
     }
 
     @Override
@@ -61,17 +78,16 @@ public class Cockroach extends Bug {
     // When lightsOff = true, the cockroaches should scatter by moving in a random direction.
     public void scatter() {
         this.setColor(Color.ORANGE);
-        for (Location location : this.getGrid().getOccupiedAdjacentLocations(this.getLocation())) {
-            if (this.getGrid().get(location) instanceof Cookie) {
-                Cookie cookie = (Cookie) this.getGrid().get(location);
-                this.setDirection(this.getLocation().getDirectionToward(location));
-                cookie.collected();
+        if (CockroachWolrd.cookies.size() > 0) {
+            this.setDirection(this.getLocation().getDirectionToward(CockroachWolrd.cookies.get(0).getLocation()));
+            if (getGrid().getNeighbors(this.getLocation()).contains(CockroachWolrd.cookies.get(0))) {
+                CockroachWolrd.cookies.get(0).collected();
                 this.cookiesCollected++;
-            } else {
-                int trueRand = (int) Math.round(Math.random() * 8);
-                int rand = (45 * (trueRand));
-                this.setDirection(rand);
             }
+        } else {
+            int trueRand = (int) Math.round(Math.random() * 8);
+            int rand = (45 * (trueRand));
+            this.setDirection(rand);
         }
     }
 }
