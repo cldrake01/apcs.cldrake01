@@ -97,12 +97,12 @@ public class CockroachWolrd extends ActorWorld {
     public void keyPressed() {
         Scanner reader = new Scanner(System.in);
 
-        this.out("Enter a command: ");
+        this.out("Enter a command, press (q) to quit: ");
 
         String key = reader.nextLine();
-        if (key.equals(" ")) CockroachWolrd.lightsOff = !CockroachWolrd.lightsOff;
-        if (key.equals("a")) this.add(new Cockroach());
-        if (key.equals("q")) System.exit(0);
+        if (key.equalsIgnoreCase(" ")) CockroachWolrd.lightsOff = !CockroachWolrd.lightsOff;
+        if (key.equalsIgnoreCase("a")) this.add(new Cockroach());
+        if (key.equalsIgnoreCase("q")) System.exit(0);
 
         this.out("Key: " + key + " LightsOff " + CockroachWolrd.lightsOff);
 
