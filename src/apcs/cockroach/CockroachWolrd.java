@@ -26,7 +26,7 @@ public class CockroachWolrd extends ActorWorld {
 
     public static Location hidingPlace = new Location(rows, columns);
 
-    public static boolean lightsOff = false;
+    public static boolean lightsOff = true;
 
     public CockroachWolrd(BoundedGrid<Actor> grid) {
         super(grid);
