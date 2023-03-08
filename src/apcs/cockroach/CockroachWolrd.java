@@ -39,7 +39,7 @@ public class CockroachWolrd extends ActorWorld {
 
         this.out(duration + " steps it is!");
 
-        this.init(20);
+        this.init(40);
     }
 
     public CockroachWolrd(BoundedGrid<Actor> grid, int rowsParam, int columnsParam) {
