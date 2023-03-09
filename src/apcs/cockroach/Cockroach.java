@@ -2,7 +2,6 @@ package apcs.cockroach;
 
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.Bug;
-import info.gridworld.actor.Flower;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
@@ -36,6 +35,14 @@ public class Cockroach extends Bug {
                 this.moveTo(next);
             } else {
                 this.removeSelfFromGrid();
+            }
+        }
+
+        for (Actor actor : getGrid().getNeighbors(this.getLocation())) {
+            if (actor instanceof Cookie) {
+                this.setDirection(this.getLocation().getDirectionToward(actor.getLocation()));
+                ((Cookie) actor).collected();
+                this.cookiesCollected++;
             }
         }
     }
