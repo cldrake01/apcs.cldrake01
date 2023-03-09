@@ -40,8 +40,10 @@ public class Cockroach extends Bug {
 
         for (Actor actor : getGrid().getNeighbors(this.getLocation())) {
             if (actor instanceof Cookie) {
-                this.setDirection(this.getLocation().getDirectionToward(actor.getLocation()));
+                Location location = actor.getLocation();
+                this.setDirection(this.getLocation().getDirectionToward(location));
                 ((Cookie) actor).collected();
+                this.moveTo(location);
                 this.cookiesCollected++;
             }
         }
