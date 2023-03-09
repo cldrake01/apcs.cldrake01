@@ -8,6 +8,7 @@ import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -33,9 +34,13 @@ public class CockroachWolrd extends ActorWorld {
 
         Scanner scanner = new Scanner(System.in);
 
-        this.out("How many steps would you like to run the simulation for?: ");
-
-        this.duration = scanner.nextInt();
+        this.out("Default: 3000\nHow many steps would you like to run the simulation for? ");
+        try {
+            this.duration = scanner.nextInt();
+            this.out(duration + " steps it is!");
+        } catch (InputMismatchException IME) {
+            this.duration = 3000;
+        }
 
         this.out(duration + " steps it is!");
 
@@ -48,23 +53,6 @@ public class CockroachWolrd extends ActorWorld {
         CockroachWolrd.columns = columnsParam;
 
         this.init(20);
-    }
-
-    public void init(int num) {
-        for (int i = 0; i < num; i++) {
-            this.add(new Rock());
-
-            Cookie cookie = new Cookie();
-            this.add(cookie);
-            CockroachWolrd.cookies.add(cookie);
-
-            if (i % 2 == 0) this.add(new Cockroach());
-        }
-    }
-
-    public void out(String message) {
-        System.out.println(message);
-        this.setMessage(message);
     }
 
     @Override
@@ -103,16 +91,6 @@ public class CockroachWolrd extends ActorWorld {
         }
     }
 
-    public static void add(Grid<Actor> grid, Location location) {
-        if (grid.isValid(location)) {
-            grid.put(location, new Cockroach());
-        }
-    }
-
-    public String getWinner() {
-        return CockroachWolrd.winner == null ? "No one wins." : "The winner is at space " + CockroachWolrd.winner.getLocation() + ", with " + CockroachWolrd.maxCookies + " cookies!";
-    }
-
     @Override
     public boolean keyPressed(String description, Location loc) {
         this.out("Enter a command, press (q) to quit: ");
@@ -125,5 +103,26 @@ public class CockroachWolrd extends ActorWorld {
         this.out("Key: " + description + " LightsOff " + CockroachWolrd.lightsOff);
 
         return false;
+    }
+
+    public void init(int num) {
+        for (int i = 0; i < num; i++) {
+            this.add(new Rock());
+
+            Cookie cookie = new Cookie();
+            this.add(cookie);
+            CockroachWolrd.cookies.add(cookie);
+
+            if (i % 2 == 0) this.add(new Cockroach());
+        }
+    }
+
+    public void out(String message) {
+        System.out.println(message);
+        this.setMessage(message);
+    }
+
+    public String getWinner() {
+        return CockroachWolrd.winner == null ? "No one wins." : "The winner is at space " + CockroachWolrd.winner.getLocation() + ", with " + CockroachWolrd.maxCookies + " cookies!";
     }
 }
