@@ -34,12 +34,12 @@ public class CockroachWolrd extends ActorWorld {
 
         Scanner scanner = new Scanner(System.in);
 
-        this.out("Default: 3000\nHow many steps would you like to run the simulation for? ");
+        this.out("Default: 1200\nHow many steps would you like to run the simulation for? ");
         try {
             this.duration = scanner.nextInt();
             this.out(duration + " steps it is!");
         } catch (InputMismatchException IME) {
-            this.duration = 3000;
+            this.duration = 1200;
         }
 
         this.out(duration + " steps it is!");
