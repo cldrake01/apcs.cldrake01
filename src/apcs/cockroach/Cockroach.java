@@ -15,13 +15,16 @@ public class Cockroach extends Bug {
         this.setColor(Color.black);
     }
 
+    public Cockroach(Location location) {
+        this.putSelfInGrid(getGrid(), location);
+    }
+
     public Cockroach(Color color) {
         this.setColor(color);
     }
 
-    public Cockroach(Location location, int direction) {
-        this.setColor(Color.ORANGE);
-        this.setDirection(direction);
+    public Cockroach(Location location, Color color) {
+        this.setColor(color);
         this.putSelfInGrid(getGrid(), location);
     }
 
