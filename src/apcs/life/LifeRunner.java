@@ -1,21 +1,24 @@
 package apcs.life;
 
 import info.gridworld.actor.Actor;
-import info.gridworld.actor.ActorWorld;
+import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
-import info.gridworld.grid.UnboundedGrid;
+import info.gridworld.world.World;
 
 public class LifeRunner {
-
-    static int count = 0;
-
     public static void main(String[] args) {
-        UnboundedGrid<Actor> gr = new UnboundedGrid<>();
-        ActorWorld world = new ActorWorld(gr);
+        int rows = 20;
+        int cols = 20;
+        World<Actor> world = new World<>(new BoundedGrid<>(rows, cols));
 
-        // add initial cells (change these as you wish)
-        world.add(new Location(0, 0), new Cell());
+        // Add a single cell to the center of the grid
+        int row = rows / 2;
+        int col = cols / 2;
+        Cell cell = new Cell();
+        cell.putSelfInGrid(world.getGrid(), new Location(row, col));
+
         world.show();
-        world.setMessage(String.valueOf(count));
+
+        // Run the simulation
     }
 }
