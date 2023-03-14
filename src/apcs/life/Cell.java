@@ -32,7 +32,6 @@ public class Cell extends Actor {
 
     @Override
     public void act() {
-        // Alternate between the two phases
         if (phase == 1) {
             phase1();
             phase = 2;
