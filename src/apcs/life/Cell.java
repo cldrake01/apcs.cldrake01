@@ -4,11 +4,12 @@ import info.gridworld.actor.Actor;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Cell extends Actor {
     private boolean willLive;
-    private ArrayList<Location> newCells;
+    private ArrayList<Location> newCells = new ArrayList<Location>();
     private int phase;
     private int birthLimit;
     private int deathLimit;
@@ -26,10 +27,7 @@ public class Cell extends Actor {
         this.iterations = 0;
 
         // Set the custom image for this cell
-        setColor(null);
-
-        // Initialize the new cells list
-        newCells = new ArrayList<Location>();
+        this.setColor(new Color(0, 0, 0));
     }
 
     @Override
@@ -62,11 +60,7 @@ public class Cell extends Actor {
         }
 
         // Determine whether this cell will live or die in phase 2
-        if (liveNeighbors == 2 || liveNeighbors == 3) {
-            willLive = true;
-        } else {
-            willLive = false;
-        }
+        willLive = liveNeighbors == 2 || liveNeighbors == 3;
 
         // Get the empty adjacent locations
         ArrayList<Location> emptyAdjLocs = grid.getEmptyAdjacentLocations(loc);

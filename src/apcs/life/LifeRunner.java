@@ -11,14 +11,12 @@ public class LifeRunner {
         int cols = 20;
         World<Actor> world = new World<>(new BoundedGrid<>(rows, cols));
 
-        // Add a single cell to the center of the grid
-        int row = rows / 2;
-        int col = cols / 2;
-        Cell cell = new Cell();
-        cell.putSelfInGrid(world.getGrid(), new Location(row, col));
+        world.add(new Location(2, 0),new Cell());
+        world.add(new Location (2, 1),new Cell());
+        world.add(new Location (2, 2),new Cell());
+        world.add(new Location (1, 2),new Cell());
+        world.add(new Location (0, 1),new Cell());
 
         world.show();
-
-        // Run the simulation
     }
 }
