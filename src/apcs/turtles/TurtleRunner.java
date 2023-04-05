@@ -1,33 +1,14 @@
 package apcs.turtles;
 
-import TurtleGraphics.*;
-import info.gridworld.gui.Display;
+import TurtleGraphics.Pen;
+import TurtleGraphics.SketchPadWindow;
+import TurtleGraphics.StandardPen;
+import TurtleGraphics.WiggleRainbowPen;
 
 import java.awt.*;
-import java.util.Arrays;
 
 public class TurtleRunner {
     public static void main(String[] args) {
-        int[] x = {0, 1, 3, 2, 4, 5, 8, 7, 6, 9};
-        int[] y = new int[10];
-
-        System.out.println(Arrays.toString(x) + "\n" + Arrays.toString(y));
-
-        for (double i = 0; i < x.length; i++) {
-            y[(int) i] = x[(int) i] / x.length;
-        }
-
-        System.out.println(Arrays.toString(x) + "\n" + Arrays.toString(y));
-
-
-
-
-
-
-
-
-
-
 
         int width = 400;
         int height = 400;
@@ -67,6 +48,26 @@ public class TurtleRunner {
 
             trianglePen.move(1);
         }
+
+        SketchPadWindow sk2 = new SketchPadWindow(500, 500);
+        Pen p2 = new StandardPen(sk2);        // Create a separate Pen window
+
+        Circle c1 = new Circle(0.0, 0.0, 10.0);    // Create a Circle instance
+
+        p2.setColor(new Color(255, 255, 0));                // Set the Pen color to blue
+        c1.draw(p2);                    // Draw the Circle with p2
+        c1.stretchBy(10.0);
+        p2.setColor(new Color(0, 255, 255));                // Set the Pen color to blue
+        c1.draw(p2);
+        c1.move(100.0, 100.0);
+        p2.setColor(new Color(255, 0, 255));                // Set the Pen color to blue
+        c1.draw(p2);
+        p2.up();
+        p2.move(-100, -100);
+        p2.drawString("" + c1);
+        p2.move(-100, -115);
+        p2.drawString("" + c1.area());
+
     }
 }
 
