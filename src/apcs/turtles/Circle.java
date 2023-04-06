@@ -4,8 +4,10 @@ import TurtleGraphics.Pen;
 
 public class Circle implements Shape{
 
-    private double xPos, yPos, radius;
-    private double circumference = 2 * Math.PI * this.radius;
+    double xPos;
+    double yPos;
+    double radius;
+    double circumference = 2 * Math.PI * this.radius;
 
     public Circle(double xPos, double  yPos, double radius) {
         this.xPos = xPos;
