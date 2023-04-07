@@ -3,16 +3,14 @@ package apcs.turtles;
 import TurtleGraphics.SketchPadWindow;
 import TurtleGraphics.StandardPen;
 
-public class Circle implements Shape{
+public class Square implements Shape {
 
-    double xPos;
-    double yPos;
-    double radius;
+    double xPos, yPos, sideLength;
 
-    public Circle(double xPos, double  yPos, double radius) {
+    public Square(double xPos, double yPos, double sideLength) {
         this.xPos = xPos;
         this.yPos = yPos;
-        this.radius = radius;
+        this.sideLength = sideLength;
     }
 
     @Override
@@ -25,24 +23,20 @@ public class Circle implements Shape{
         return this.yPos;
     }
 
-    public double getCircumference() {
-        return 2 * Math.PI * this.radius;
-    }
-
     @Override
     public void move(double xPos, double yPos) {
-        this.xPos += xPos;
-        this.yPos += yPos;
+        this.xPos = xPos;
+        this.yPos = yPos;
     }
 
     @Override
     public void stretchBy(double factor) {
-        this.radius *= factor;
+        this.sideLength *= factor;
     }
 
     @Override
     public double area() {
-        return Math.PI * Math.pow(this.radius, 2);
+        return this.sideLength * this.sideLength;
     }
 
     @Override
@@ -50,12 +44,12 @@ public class Circle implements Shape{
         StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
 
         pen.up();
-        pen.move(this.xPos, this.yPos);
+        pen.move(xPos, yPos);
         pen.down();
 
-        for (int i = 0; i < 360; i++) {
-            pen.move(this.getCircumference() / 360);
-            pen.turn(1);
+        for (int i = 0; i < 4; i++) {
+            pen.move(this.sideLength);
+            pen.turn(90);
         }
     }
 }
