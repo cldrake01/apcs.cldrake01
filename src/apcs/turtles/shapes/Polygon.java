@@ -7,7 +7,7 @@ public class Polygon implements Shape {
 
     double xPos, yPos, sides, sideLength;
 
-    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));;
+    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
 
     public Polygon(double xPos, double yPos, double sides, double sideLength) {
         this.sides = sides;

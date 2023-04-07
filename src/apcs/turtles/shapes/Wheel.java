@@ -7,7 +7,7 @@ public class Wheel extends Circle implements Shape {
 
     private final double spokes;
 
-    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));;
+    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
 
     public Wheel(double xPos, double yPos, double radius, int spokes) {
         super(xPos, yPos, radius);

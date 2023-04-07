@@ -3,13 +3,13 @@ package apcs.turtles.shapes;
 import TurtleGraphics.SketchPadWindow;
 import TurtleGraphics.StandardPen;
 
-public class Circle implements Shape{
+public class Circle implements Shape {
 
     double xPos, yPos, radius;
 
-    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));;
+    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
 
-    public Circle(double xPos, double  yPos, double radius) {
+    public Circle(double xPos, double yPos, double radius) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.radius = radius;

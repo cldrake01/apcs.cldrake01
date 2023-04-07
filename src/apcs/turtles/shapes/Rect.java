@@ -3,11 +3,11 @@ package apcs.turtles.shapes;
 import TurtleGraphics.SketchPadWindow;
 import TurtleGraphics.StandardPen;
 
-public class Rect implements Shape{
+public class Rect implements Shape {
 
     private double xPos, yPos, width, height;
 
-    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));;
+    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
 
     public Rect(double xPos, double yPos, double width, double height) {
         this.xPos = xPos;
@@ -40,7 +40,7 @@ public class Rect implements Shape{
     }
 
     @Override
-    public double area () {
+    public double area() {
         return this.height * this.width;
     }
 

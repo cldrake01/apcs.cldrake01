@@ -5,10 +5,15 @@ import TurtleGraphics.Pen;
 interface Shape {
 
     double getXPos();
+
     double getYPos();
+
     void move(double xPos, double yPos);
+
     Shape stretchBy(double factor);
+
     double area();
+
     void draw();
 
     default void reset(Pen pen) {
