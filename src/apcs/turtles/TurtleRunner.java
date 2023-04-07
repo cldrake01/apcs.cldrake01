@@ -1,40 +1,20 @@
 package apcs.turtles;
 
+import apcs.turtles.shapes.*;
+
 public class TurtleRunner {
     public static void main(String[] args) {
 
-        Shape polygon = new Polygon(100, 100, 6, 400);
+        new Polygon(100, 100, 12, 50).draw();
 
-        polygon.draw();
-        System.out.println(polygon.area());
+        new Square(100, 100, 200).draw();
 
-        Shape square = new Square(100, 100, 400);
+        new Rect(100, 100, 200, 100).draw();
 
-        square.draw();
-        System.out.println(square.area());
+        new Circle(100, 100, 50).draw();
 
-        Shape rect = new Rect(100, 100, 400, 200);
+        new Wheel(100, 100, 50, 6).draw();
 
-        rect.draw();
-        System.out.println(rect.area());
-
-        Shape circle = new Circle(100, 100, 200);
-
-        circle.draw();
-        System.out.println(circle.area());
-
-        Shape wheel = new Wheel(100, 100, 200, 6);
-
-        wheel.draw();
-        System.out.println(wheel.area());
-
-        SketchPadWindow sk3 = new SketchPadWindow(500, 500);
-        Pen p3 = new StandardPen(sk3);        // Create a separate Pen window
-
-        Circle c2 = new Circle(0.0, 0.0, 10.0);
-        p2.setColor(new Color(255, 120, 0));                // Set the Pen color to blue
-        c1.draw(p2);
-        c1.move(100.0, 100.0);
     }
 }
 

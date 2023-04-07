@@ -1,10 +1,13 @@
-package apcs.turtles;
+package apcs.turtles.shapes;
 
 import TurtleGraphics.SketchPadWindow;
 import TurtleGraphics.StandardPen;
 
 public class Wheel extends Circle implements Shape {
-    private double spokes;
+
+    private final double spokes;
+
+    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));;
 
     public Wheel(double xPos, double yPos, double radius, int spokes) {
         super(xPos, yPos, radius);
@@ -13,11 +16,10 @@ public class Wheel extends Circle implements Shape {
 
     @Override
     public void draw() {
-        StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
 
-        pen.up();
-        pen.move(this.getXPos(), this.getYPos());
-        pen.down();
+        getInfo(pen);
+
+        reset(pen);
 
         for (int i = 0; i < 360; i++) {
             pen.move(this.getCircumference() / 360);
@@ -25,15 +27,17 @@ public class Wheel extends Circle implements Shape {
         }
 
         pen.up();
-        pen.move(this.getXPos() - this.radius, this.getYPos() - this.radius);
+        pen.move(this.getXPos(), this.getYPos() + this.radius);
+        pen.setDirection(0);
         pen.down();
 
-        for (int i = 0; i < this.spokes; i++) {
-            pen.move(this.getXPos() - this.radius, this.getYPos() - this.radius);
+        for (double i = 1; i <= this.spokes; i++) {
+            pen.turn(360 / this.spokes - 180);
             pen.down();
             pen.move(this.radius);
             pen.up();
-            pen.turn(360 / this.spokes);
+            pen.move(this.getXPos(), this.getYPos() + this.radius);
+            pen.turn(360 / this.spokes + 180);
         }
     }
 }

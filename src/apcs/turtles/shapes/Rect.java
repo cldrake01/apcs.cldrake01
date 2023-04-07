@@ -1,4 +1,4 @@
-package apcs.turtles;
+package apcs.turtles.shapes;
 
 import TurtleGraphics.SketchPadWindow;
 import TurtleGraphics.StandardPen;
@@ -6,6 +6,8 @@ import TurtleGraphics.StandardPen;
 public class Rect implements Shape{
 
     private double xPos, yPos, width, height;
+
+    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));;
 
     public Rect(double xPos, double yPos, double width, double height) {
         this.xPos = xPos;
@@ -31,9 +33,10 @@ public class Rect implements Shape{
     }
 
     @Override
-    public void stretchBy(double factor) {
+    public Shape stretchBy(double factor) {
         this.height *= factor;
         this.width *= factor;
+        return this;
     }
 
     @Override
@@ -43,11 +46,10 @@ public class Rect implements Shape{
 
     @Override
     public void draw() {
-        StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
 
-        pen.up();
-        pen.move(this.xPos, this.yPos);
-        pen.down();
+        getInfo(pen);
+
+        reset(pen);
 
         for (int i = 0; i < 4; i++) {
             pen.move(this.width);
