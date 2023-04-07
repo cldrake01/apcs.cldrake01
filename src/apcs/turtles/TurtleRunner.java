@@ -28,6 +28,13 @@ public class TurtleRunner {
         wheel.draw();
         System.out.println(wheel.area());
 
+        SketchPadWindow sk3 = new SketchPadWindow(500, 500);
+        Pen p3 = new StandardPen(sk3);        // Create a separate Pen window
+
+        Circle c2 = new Circle(0.0, 0.0, 10.0);
+        p2.setColor(new Color(255, 120, 0));                // Set the Pen color to blue
+        c1.draw(p2);
+        c1.move(100.0, 100.0);
     }
 }
 
