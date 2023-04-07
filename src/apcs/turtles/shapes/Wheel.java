@@ -5,13 +5,26 @@ import TurtleGraphics.StandardPen;
 
 public class Wheel extends Circle implements Shape {
 
-    private final double spokes;
+    private double spokes;
 
     private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
+
+    public Wheel(double xPos, double yPos, double radius) {
+        super(xPos, yPos, radius);
+        this.spokes = 8;
+    }
 
     public Wheel(double xPos, double yPos, double radius, int spokes) {
         super(xPos, yPos, radius);
         this.spokes = spokes;
+    }
+
+    public void setSpokes(double spokes) {
+        this.spokes = spokes;
+    }
+
+    public double getSpokes() {
+        return spokes;
     }
 
     @Override
