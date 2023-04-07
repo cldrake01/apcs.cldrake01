@@ -9,11 +9,6 @@ public class Polygon implements Shape {
 
     private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));;
 
-    public Polygon(double sides, double sideLength) {
-        this.sides = sides;
-        this.sideLength = sideLength;
-    }
-
     public Polygon(double xPos, double yPos, double sides, double sideLength) {
         this.sides = sides;
         this.sideLength = sideLength;

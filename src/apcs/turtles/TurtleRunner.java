@@ -5,7 +5,7 @@ import apcs.turtles.shapes.*;
 public class TurtleRunner {
     public static void main(String[] args) {
 
-        new Polygon(100, 100, 12, 50).draw();
+        new Polygon(100, 100, 17, 50).draw();
 
         new Square(100, 100, 200).draw();
 
@@ -13,7 +13,7 @@ public class TurtleRunner {
 
         new Circle(100, 100, 50).draw();
 
-        new Wheel(100, 100, 50, 6).draw();
+        new Wheel(100, 100, 50, 6).stretchBy(2).draw();
 
     }
 }
