@@ -33,7 +33,7 @@ public class Rect implements Shape{
     }
 
     @Override
-    public Shape stretchBy(double factor) {
+    public Rect stretchBy(double factor) {
         this.height *= factor;
         this.width *= factor;
         return this;

@@ -32,7 +32,7 @@ public class Square implements Shape {
     }
 
     @Override
-    public Shape stretchBy(double factor) {
+    public Square stretchBy(double factor) {
         this.sideLength *= factor;
         return this;
     }

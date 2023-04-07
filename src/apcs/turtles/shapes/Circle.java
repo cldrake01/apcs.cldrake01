@@ -36,7 +36,7 @@ public class Circle implements Shape{
     }
 
     @Override
-    public Shape stretchBy(double factor) {
+    public Circle stretchBy(double factor) {
         this.radius *= factor;
         return this;
     }

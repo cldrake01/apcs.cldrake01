@@ -42,7 +42,7 @@ public class Polygon implements Shape {
     }
 
     @Override
-    public Shape stretchBy(double factor) {
+    public Polygon stretchBy(double factor) {
         this.sideLength *= factor;
         return this;
     }
