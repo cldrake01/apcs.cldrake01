@@ -5,6 +5,8 @@ import apcs.turtles.shapes.*;
 public class TurtleRunner {
     public static void main(String[] args) {
 
+        new Polygon(100, 100, 3, 50).draw();
+
         new Polygon(100, 100, 17, 50).draw();
 
         new Square(100, 100, 200).draw();
