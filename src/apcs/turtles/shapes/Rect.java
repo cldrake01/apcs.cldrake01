@@ -1,13 +1,15 @@
 package apcs.turtles.shapes;
 
+import TurtleGraphics.Pen;
 import TurtleGraphics.SketchPadWindow;
 import TurtleGraphics.StandardPen;
+import apcs.turtles.SlowPen;
 
 public class Rect implements Shape {
 
     private double xPos, yPos, width, height;
 
-    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
+    private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
 
     public Rect(double xPos, double yPos, double width, double height) {
         this.xPos = xPos;

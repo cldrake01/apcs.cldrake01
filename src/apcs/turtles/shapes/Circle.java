@@ -1,13 +1,15 @@
 package apcs.turtles.shapes;
 
+import TurtleGraphics.Pen;
 import TurtleGraphics.SketchPadWindow;
 import TurtleGraphics.StandardPen;
+import apcs.turtles.SlowPen;
 
 public class Circle implements Shape {
 
     double xPos, yPos, radius;
 
-    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
+    private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
 
     public Circle(double xPos, double yPos, double radius) {
         this.xPos = xPos;
@@ -54,7 +56,7 @@ public class Circle implements Shape {
         reset(pen);
 
         for (int i = 0; i < 360; i++) {
-            pen.move(this.getCircumference() / 360);
+            pen.move(this.getCircumference() / 120);
             pen.turn(1);
         }
     }

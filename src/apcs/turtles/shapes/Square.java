@@ -1,13 +1,15 @@
 package apcs.turtles.shapes;
 
+import TurtleGraphics.Pen;
 import TurtleGraphics.SketchPadWindow;
 import TurtleGraphics.StandardPen;
+import apcs.turtles.SlowPen;
 
 public class Square implements Shape {
 
     double xPos, yPos, sideLength;
 
-    private final StandardPen pen = new StandardPen(new SketchPadWindow(1920, 1080));
+    private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
 
     public Square(double xPos, double yPos, double sideLength) {
         this.xPos = xPos;
