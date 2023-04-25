@@ -2,13 +2,19 @@ package apcs.turtles.shapes;
 
 import TurtleGraphics.Pen;
 import TurtleGraphics.SketchPadWindow;
-import apcs.turtles.SlowPen;
+import TurtleGraphics.StandardPen;
 
 public class Dragon implements Shape {
 
-    long length;
+    int degree = 1;
+    long sideLength = 5;
 
-    private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
+    private final Pen pen = new StandardPen(new SketchPadWindow(1920, 1080));
+
+    public Dragon(long sideLength, int degree) {
+        this.sideLength = sideLength;
+        this.degree = degree;
+    }
 
     @Override
     public double getXPos() {
@@ -27,7 +33,8 @@ public class Dragon implements Shape {
 
     @Override
     public Shape stretchBy(double factor) {
-        return null;
+        this.sideLength *= factor;
+        return this;
     }
 
     @Override
@@ -37,19 +44,26 @@ public class Dragon implements Shape {
 
     @Override
     public void draw() {
-
+        dragon(Math.min(Math.max(degree, 1), 15));
     }
 
-    public void draw(int degree, long length) {
+    public void dragon(int n) {
+        if (n == 0) {
+            pen.move(this.sideLength);
+        } else {
+            dragon(n-1);
+            pen.turn(90);
+            nogard(n-1);
+        }
+    }
 
-        if (degree == 0) return;
-
-        pen.move(length);
-        pen.turn(-45);
-        pen.move(length / 2.0);
-        pen.turn(-45);
-        pen.move(length);
-
-        draw(degree - 1, length);
+    public void nogard(int n) {
+        if (n == 0) {
+            pen.move(this.sideLength);
+        } else {
+            dragon(n-1);
+            pen.turn(-90);
+            nogard(n-1);
+        }
     }
 }
