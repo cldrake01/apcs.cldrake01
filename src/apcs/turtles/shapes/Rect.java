@@ -2,15 +2,26 @@ package apcs.turtles.shapes;
 
 import TurtleGraphics.Pen;
 import TurtleGraphics.SketchPadWindow;
-import TurtleGraphics.StandardPen;
 import apcs.turtles.SlowPen;
 
+/**
+ * A rectangular shape that can be drawn on a SketchPadWindow using a Turtle Graphics pen.
+ */
 public class Rect implements Shape {
 
     private double xPos, yPos, width, height;
 
+    // The pen used to draw this rectangle
     private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
 
+    /**
+     * Constructs a new rectangular shape with the given position and dimensions.
+     *
+     * @param xPos   the x-coordinate of the top-left corner of the rectangle
+     * @param yPos   the y-coordinate of the top-left corner of the rectangle
+     * @param width  the width of the rectangle
+     * @param height the height of the rectangle
+     */
     public Rect(double xPos, double yPos, double width, double height) {
         this.xPos = xPos;
         this.yPos = yPos;
@@ -48,11 +59,11 @@ public class Rect implements Shape {
 
     @Override
     public void draw() {
-
+        // Set up the pen
         getInfo(pen);
-
         reset(pen);
 
+        // Draw the rectangle
         for (int i = 0; i < 4; i++) {
             pen.move(this.width);
             pen.turn(90);

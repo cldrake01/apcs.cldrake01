@@ -2,15 +2,40 @@ package apcs.turtles.shapes;
 
 import TurtleGraphics.Pen;
 import TurtleGraphics.SketchPadWindow;
-import TurtleGraphics.StandardPen;
 import apcs.turtles.SlowPen;
 
+/**
+ * Represents a Circle shape with a given position and radius.
+ */
 public class Circle implements Shape {
 
-    double xPos, yPos, radius;
+    /**
+     * The x-coordinate of the center of the circle.
+     */
+    double xPos;
 
+    /**
+     * The y-coordinate of the center of the circle.
+     */
+    double yPos;
+
+    /**
+     * The radius of the circle.
+     */
+    double radius;
+
+    /**
+     * The pen used to draw the circle.
+     */
     private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
 
+    /**
+     * Creates a new Circle shape with the given center position and radius.
+     *
+     * @param xPos   the x-coordinate of the center of the circle
+     * @param yPos   the y-coordinate of the center of the circle
+     * @param radius the radius of the circle
+     */
     public Circle(double xPos, double yPos, double radius) {
         this.xPos = xPos;
         this.yPos = yPos;
@@ -27,6 +52,11 @@ public class Circle implements Shape {
         return this.yPos;
     }
 
+    /**
+     * Returns the circumference of the circle.
+     *
+     * @return the circumference of the circle
+     */
     public double getCircumference() {
         return 2 * Math.PI * this.radius;
     }
@@ -48,6 +78,9 @@ public class Circle implements Shape {
         return Math.PI * Math.pow(this.radius, 2);
     }
 
+    /**
+     * Draws the circle using the current pen.
+     */
     @Override
     public void draw() {
 

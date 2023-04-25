@@ -17,7 +17,10 @@ public class TurtleRunner {
 //
 //        new Wheel(100, 100, 50, 6).stretchBy(2).draw();
 
-        new Dragon(3,15).draw();
+        new Dragon(3, 15).draw();
+
+        String future = null;
+        System.out.println(future.length());
     }
 }
 
