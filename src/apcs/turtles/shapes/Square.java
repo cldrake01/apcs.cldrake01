@@ -1,21 +1,14 @@
 package apcs.turtles.shapes;
 
-import TurtleGraphics.Pen;
-import TurtleGraphics.SketchPadWindow;
-import apcs.turtles.SlowPen;
-
 public class Square implements Shape {
 
     double xPos, yPos, sideLength;
 
-    // Initialize a SlowPen object with a SketchPadWindow object with dimensions 1920 x 1080
-    private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
-
     /**
      * Constructs a Square object with a given x and y position and side length.
      *
-     * @param xPos The x-coordinate of the square's position
-     * @param yPos The y-coordinate of the square's position
+     * @param xPos       The x-coordinate of the square's position
+     * @param yPos       The y-coordinate of the square's position
      * @param sideLength The length of each side of the square
      */
     public Square(double xPos, double yPos, double sideLength) {

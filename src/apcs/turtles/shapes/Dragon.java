@@ -1,9 +1,5 @@
 package apcs.turtles.shapes;
 
-import TurtleGraphics.Pen;
-import TurtleGraphics.SketchPadWindow;
-import TurtleGraphics.StandardPen;
-
 /**
  * Represents a Dragon curve, which is a fractal that can be drawn using a recursive algorithm.
  */
@@ -18,11 +14,6 @@ public class Dragon implements Shape {
      * The length of each side of the curve.
      */
     private long sideLength = 5;
-
-    /**
-     * The pen used to draw the curve.
-     */
-    private final Pen pen = new StandardPen(new SketchPadWindow(1920, 1080));
 
     /**
      * Creates a new Dragon curve with the given side length and degree.

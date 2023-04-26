@@ -1,22 +1,59 @@
 package apcs.turtles.shapes;
 
-public class Cardioid extends Circle implements Shape {
+public class Cardioid implements Shape {
+
+    double xPos, yPos, radius, angle;
+
+    public Cardioid(double radius) {
+        this.radius = radius;
+    }
 
     public Cardioid(double xPos, double yPos, double radius) {
-        super(xPos, yPos, radius);
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.radius = radius;
     }
 
     @Override
+    public double getXPos() {
+        return 0;
+    }
+
+    @Override
+    public double getYPos() {
+        return 0;
+    }
+
+    @Override
+    public void move(double xPos, double yPos) {
+
+    }
+
+    @Override
+    public Shape stretchBy(double factor) {
+        return null;
+    }
+
+    @Override
+    public double area() {
+        return 0;
+    }
+
+    /**
+     * Draws a cardioid.
+     */
+    @Override
     public void draw() {
+        getInfo(pen);
+        reset(pen);
 
-        double x, y, r;
+        for (int i = 0; i < 360; i++) {
 
-        for (int i = -2; i < 90; i++) {
-            for (int j = -2; j < 90; j++) {
-                r = Math.PI / 45 + Math.PI / 45 * i * (1 - Math.sin(Math.PI / 45 * j)) * 18;
-                x = r * Math.cos(Math.PI / 45 * j) * Math.sin(Math.PI / 45 * i) + this.radius / 2;
-                y = -r * Math.sin(Math.PI / 45 * j) + this.radius / 3;
-            }
+            double angle = Math.toRadians(i);
+            double x = this.radius * (2 * Math.cos(angle) - Math.cos(2 * angle));
+            double y = this.radius * (2 * Math.sin(angle) - Math.sin(2 * angle));
+
+            pen.move(x, y);
         }
     }
 }

@@ -1,9 +1,5 @@
 package apcs.turtles.shapes;
 
-import TurtleGraphics.Pen;
-import TurtleGraphics.SketchPadWindow;
-import apcs.turtles.SlowPen;
-
 /**
  * A class that represents a polygon shape that can be drawn on a SketchPadWindow using a Turtle pen.
  */
@@ -28,11 +24,6 @@ public class Polygon implements Shape {
      * The length of each side of the polygon.
      */
     private double sideLength;
-
-    /**
-     * The pen used to draw the polygon on the SketchPadWindow.
-     */
-    private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
 
     /**
      * Constructor for a Polygon object.

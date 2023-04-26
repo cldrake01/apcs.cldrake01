@@ -1,18 +1,11 @@
 package apcs.turtles.shapes;
 
-import TurtleGraphics.Pen;
-import TurtleGraphics.SketchPadWindow;
-import apcs.turtles.SlowPen;
-
 /**
  * A rectangular shape that can be drawn on a SketchPadWindow using a Turtle Graphics pen.
  */
 public class Rect implements Shape {
 
     private double xPos, yPos, width, height;
-
-    // The pen used to draw this rectangle
-    private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
 
     /**
      * Constructs a new rectangular shape with the given position and dimensions.

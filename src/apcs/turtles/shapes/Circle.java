@@ -1,9 +1,5 @@
 package apcs.turtles.shapes;
 
-import TurtleGraphics.Pen;
-import TurtleGraphics.SketchPadWindow;
-import apcs.turtles.SlowPen;
-
 /**
  * Represents a Circle shape with a given position and radius.
  */
@@ -23,11 +19,6 @@ public class Circle implements Shape {
      * The radius of the circle.
      */
     double radius;
-
-    /**
-     * The pen used to draw the circle.
-     */
-    private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
 
     /**
      * Creates a new Circle shape with the given center position and radius.

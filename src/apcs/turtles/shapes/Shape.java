@@ -1,8 +1,12 @@
 package apcs.turtles.shapes;
 
 import TurtleGraphics.Pen;
+import TurtleGraphics.SketchPadWindow;
+import TurtleGraphics.StandardPen;
 
-interface Shape {
+public interface Shape {
+
+    Pen pen = new StandardPen(new SketchPadWindow(1920, 1080));
 
     double getXPos();
 

@@ -1,14 +1,11 @@
 package apcs.turtles.shapes;
 
-import TurtleGraphics.Pen;
-import TurtleGraphics.SketchPadWindow;
-import apcs.turtles.SlowPen;
-
 public class Star implements Shape {
 
-    private double xPos, yPos, points, sideLength;
-
-    private final Pen pen = new SlowPen(new SketchPadWindow(1920, 1080));
+    private final double points;
+    private final double sideLength;
+    private double xPos;
+    private double yPos;
 
     public Star(double sides, double sideLength) {
         this.points = sides;
